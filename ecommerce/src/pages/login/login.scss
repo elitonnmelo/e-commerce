@@ -1,0 +1,53 @@
+ion-header {
+    .toolbar-title {
+        color: white;
+    }
+
+    .back-button {
+        color: white;
+    }
+}.conteudo{
+    background: url('../../assets/imgs/bg.jpeg') no-repeat center /cover transparent;
+    //inicio
+    .conteudo-input {
+        ion-item {
+            //background-color: transparent;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.3) !important;
+        }
+        ion-input {
+            color: white;
+        }
+        ::placeholder {
+            color: rgb(211, 207, 207);
+        }
+    }
+    .margin-input-top {
+        margin-top: 20px;
+    }
+    .margin-btn-top {
+        margin-top: 30px;
+    }
+    .btn {
+        background-color: #008080;
+        border-radius: 30px;
+        text-transform: capitalize;
+    }
+    .grid-logo {
+        ion-col {
+            text-align: center;
+        }
+        
+    }
+    
+    .margin-btnlink-top {
+        margin-top: 10px;
+    }
+
+    
+//fim
+}
+.btn-link {
+    color: white;
+    text-transform: none;
+}

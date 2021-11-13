@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar transparent>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="conteudo">
+  <ion-grid class="grid-logo">
+    <ion-row aling-items-center justify-content-center>
+      <ion-col col-12 align-self-center>
+        <img width="120" height="120" src="../../assets/imgs/logo.png">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+  <ion-grid class="grid-list">
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center col-12 col-lg-4 col-xl-4>
+
+        <ion-list class="conteudo-input">
+    
+          <ion-item class="margin-input-top">
+            <ion-input type="text" [(ngModel)]="email" placeholder="E-mail"></ion-input>
+          </ion-item>
+        
+          <ion-item class="margin-input-top">
+            <ion-input type="password" [(ngModel)]="senha" placeholder="Senha"></ion-input>
+          </ion-item>
+      
+          <button ion-button block  (click)="entrar()" class="margin-btn-top btn" >Entrar</button>
+        
+      
+          <button class="btn-link margem-btnlink-top" ion-button block color="primary" clear (click)="esqueciSenha()">Recuperar senha? Clique aqui</button>
+      
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar transparent>
+    <ion-title>
+      <button class="btn-link " ion-button block color="dark" clear (click)="cadastro()">Não possui conta? Cadastre-se</button>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
