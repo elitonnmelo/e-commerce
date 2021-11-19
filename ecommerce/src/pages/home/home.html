@@ -1,32 +1,90 @@
-<ion-card>
+<ion-header>
+  <ion-buttons end>
+    <button ion-button icon-only (click)="openFilter()">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-header>
 
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="https://upupa.com.br/wp-content/uploads/2018/05/logo-de-clinica-oftalmologica.jpg">
-    </ion-avatar>
-    <h2>eye clinic</h2>
-    <p>November 5, 2021</p>
-  </ion-item>
+<ion-content padding>
 
-  <img src="http://www.hosergipe.com.br/index/wp-content/uploads/2020/09/modelo5.png">
+  <ion-grid>
+    <ion-row>
 
-  <ion-card-content>
-    <p>Oque voce acha sobre esta foto</p>
-  </ion-card-content>
+      <ion-col col-1-4>
+        <ion-segment>
+          <ion-segment-button>
+            mel
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+      <ion-col col-5-8>
+        <ion-segment>
+          <ion-segment-button>
+            leite
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+      <ion-col col-9-12>
+        <ion-segment>
+          <ion-segment-button>
+            cordeiro
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-7-12>
+        <ion-card >
+          <img width="50" height="150px" src="http://www.blueface.com.br/wp-content/uploads/2016/06/mel.jpg"/>
+          <ion-card-content>
+              <h2>R$ 20,00</h2>
+              <h3>Mel de ótima qualidade</h3>
+          </ion-card-content>
+        </ion-card>
 
-  <ion-row>
-    <ion-col>
-      <button ion-button icon-start clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
-      </button>
-    </ion-col>
-    <ion-col>
-      <button ion-button icon-start clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
-      </button>
-    </ion-col>
-  </ion-row>
-</ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card >
+          <img width="50" height="150px" src="http://www.blueface.com.br/wp-content/uploads/2016/06/mel.jpg"/>
+          <ion-card-content>
+            <h2>R$ 20,00</h2>
+            <h3>Mel de ótima qualidade</h3>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-6>
+        <ion-card >
+          <img width="50" height="150px" src="http://www.blueface.com.br/wp-content/uploads/2016/06/mel.jpg"/>
+          <ion-card-content>
+            <h2>R$ 20,00</h2>
+            <h3>Mel de ótima qualidade</h3>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-7-12>
+        <ion-card >
+          <img width="50" height="150px" src="http://www.blueface.com.br/wp-content/uploads/2016/06/mel.jpg"/>
+          <ion-card-content>
+              <h2>R$ 20,00</h2>
+              <h3>Mel de ótima qualidade</h3>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+
+
+
+
+
  

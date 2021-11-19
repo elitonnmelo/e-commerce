@@ -1,0 +1,11 @@
+// dados do banco firebase
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDmir3XOsL2YdFjsK80BXIM_1Aok3zRdqo",
+  authDomain: "e-commerce-398eb.firebaseapp.com",
+  projectId: "e-commerce-398eb",
+  storageBucket: "e-commerce-398eb.appspot.com",
+  messagingSenderId: "588203640801",
+  appId: "1:588203640801:web:da0d7b891da56632f3b4a0",
+  measurementId: "G-W1Q7MF6KN2"
+};

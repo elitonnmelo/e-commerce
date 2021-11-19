@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserProvider } from '../../providers/user/user';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Storage} from "@ionic/storage";
+
 
 @IonicPage()
 @Component({
@@ -14,8 +11,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  email= '';
+  senha = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public userProvider: UserProvider,
+    public alertCtrl: AlertController,
+    public storage: Storage
+
+    ) {
   }
 
   ionViewDidLoad() {
@@ -29,7 +33,27 @@ export class LoginPage {
     this.navCtrl.push('RecuperarSenhaPage');
   }
   entrar(){
-    this.navCtrl.push('HomePage');
+    //this.navCtrl.push('HomePage');
+    this.email;
+    this.senha;
+    this.userProvider.login(this.email, this.senha)
+      .then(user => {
+        console.log('sucesso');
+        this.storage.set('usuario', user.uid).then( _data => {
+          this.navCtrl.setRoot('HomePage');
+        })
+        
+      }).catch(error => {
+        this.showAlertErro();
+      })
+  }
+  showAlertErro() {
+    const alert = this.alertCtrl.create({
+      title: 'Erro',
+      subTitle: 'Erro, não foi possível realizar seu login. Por favor verificas seu e-mail e senha!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 
