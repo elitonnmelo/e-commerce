@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import {Storage} from "@ionic/storage";
 
 
 @Injectable()
@@ -10,6 +11,7 @@ export class UserProvider {
   constructor(
     public http: HttpClient,
     public afd: AngularFireDatabase,
+    public storage: Storage,
     public afa: AngularFireAuth
 
 
@@ -32,6 +34,20 @@ export class UserProvider {
 
       });
 
+  }
+  byId(id: string) {
+    return this.afd.object('/usuarios/' + id).valueChanges();
+  }
+
+  salvarLocal(id) {
+    return this.storage.set('usuario', id);
+  }
+  lerLocal() {
+    return this.storage.get('usuario');
+  }
+
+  removeLocal() {
+    return this.storage.remove('usuario');
   }
 
   recuperarSenha(email){

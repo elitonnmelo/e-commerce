@@ -39,7 +39,7 @@ export class LoginPage {
     this.userProvider.login(this.email, this.senha)
       .then(user => {
         console.log('sucesso');
-        this.storage.set('usuario', user.uid).then( _data => {
+        this.userProvider.salvarLocal(user.uid).then( _data => {
           this.navCtrl.setRoot('HomePage');
         })
         

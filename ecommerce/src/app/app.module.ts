@@ -9,7 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-//import { HomePage } from '../pages/home/home';
+//import { Home1Page } from '../pages/home1/home1';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -21,6 +21,7 @@ import { AngularFireStorageModule } from "angularfire2/storage";
 import { UserProvider } from '../providers/user/user';
 import { database } from 'firebase';
 import { IonicStorageModule } from '@ionic/storage';
+import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmir3XOsL2YdFjsK80BXIM_1Aok3zRdqo",
@@ -37,7 +38,7 @@ const firebaseConfig = {
   declarations: [
     MyApp,
     AboutPage,
-    //HomePage,
+    //Home1Page,
     ContactPage,
     TabsPage
   ],
@@ -58,14 +59,15 @@ const firebaseConfig = {
     MyApp,
     AboutPage,
     ContactPage,
-    //HomePage,
+    //Home1Page,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    FirebaseStorageProvider
   ]
 })
 export class AppModule {}

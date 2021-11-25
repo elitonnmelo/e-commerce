@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import {Storage} from "@ionic/storage";
+import { UserProvider } from '../providers/user/user';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,10 +13,12 @@ import {Storage} from "@ionic/storage";
 export class MyApp {
   rootPage:any = 'LoginPage';
 
-  constructor(platform: Platform,
+  constructor(
+    platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    public storage: Storage
+    public storage: Storage,
+    public userProvider: UserProvider
 
     ) {
     platform.ready().then(() => {
@@ -23,6 +26,15 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+
+      this.userProvider.lerLocal().then(_usuario => {
+        if(_usuario && _usuario.length > 0){
+          this.rootPage = 'HomePage';
+        } else{
+          this.rootPage = 'LoginPage';
+        }
+      })
     });
   }
 }

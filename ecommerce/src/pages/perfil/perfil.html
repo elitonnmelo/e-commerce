@@ -1,0 +1,123 @@
+
+<ion-header>
+  <ion-navbar color="light">
+    <ion-title>PERFIL</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only right (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+
+    </ion-buttons>
+    
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="conteudo" padding>
+
+
+  <ion-list class="conteudo-input">
+
+
+    <ion-item>
+
+      <ion-avatar class="img-center" item-start>
+        <img  [src]="foto">
+        <button  ion-button clear (click)="escolherFoto()">Escolher Foto</button> 
+        <input type="file" #fileUserPhoto style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+
+        <ion-item class="margin-input-top-2">
+          <ion-label >Nome</ion-label>
+          <ion-input type="text" [(ngModel)]="item.nome"  placeholder="Nome"></ion-input>
+        </ion-item>
+        <ion-item class="margin-input-top">
+          <ion-label >Email</ion-label>
+          <ion-input type="text" [(ngModel)]="item.email"  placeholder="E-mail"></ion-input>
+        </ion-item>
+
+        <button class="btn margin-btn-top" ion-button block (click)="salvar()">Salvar</button>
+       
+      </ion-avatar>
+
+    </ion-item>
+    
+    
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1-6>
+          <ion-segment [(ngModel)]="notas">
+            <ion-segment-button value="compras" class="btn-2" >
+              COMPRAS
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+        <ion-col col-7-12>
+          <ion-segment [(ngModel)]="notas">
+            <ion-segment-button value="vendas" class="btn-2">
+              VENDAS
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div [ngSwitch]="notas">
+      <ion-list *ngSwitchCase="'vendas'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://blog.belgobekaert.com.br/agro/wp-content/uploads/sites/2/2019/07/GettyImages-466833697-1.jpg">
+          </ion-thumbnail>
+          <h2>LEITE</h2>
+          <p>Eder comprou dia 11/06/2021 as 14:00</p>
+          <p>Forma de pagamento: BOLETO</p>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://blog.belgobekaert.com.br/agro/wp-content/uploads/sites/2/2019/07/GettyImages-466833697-1.jpg">
+          </ion-thumbnail>
+          <h2>LEITE</h2>
+          <p>Eder comprou dia 11/06/2021 as 14:00</p>
+          <p>Forma de pagamento: BOLETO</p>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://blog.belgobekaert.com.br/agro/wp-content/uploads/sites/2/2019/07/GettyImages-466833697-1.jpg">
+          </ion-thumbnail>
+          <h2>LEITE</h2>
+          <p>Eder comprou dia 11/06/2021 as 14:00</p>
+          <p>Forma de pagamento: BOLETO</p>
+        </ion-item>
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'compras'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sheep%2C_Stodmarsh_6.jpg/1200px-Sheep%2C_Stodmarsh_6.jpg">
+          </ion-thumbnail>
+          <h2>CORDEIRO</h2>
+          <p>Você, dia 11/06/2021 as 14:00</p>
+          <p>Forma de pagamento: BOLETO</p>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sheep%2C_Stodmarsh_6.jpg/1200px-Sheep%2C_Stodmarsh_6.jpg">
+          </ion-thumbnail>
+          <h2>CORDEIRO</h2>
+          <p>Você, dia 11/06/2021 as 14:00</p>
+          <p>Forma de pagamento: BOLETO</p>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sheep%2C_Stodmarsh_6.jpg/1200px-Sheep%2C_Stodmarsh_6.jpg">
+          </ion-thumbnail>
+          <h2>CORDEIRO</h2>
+          <p>Você, dia 11/06/2021 as 14:00</p>
+          <p>Forma de pagamento: BOLETO</p>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-list>
+
+  
+
+</ion-content>

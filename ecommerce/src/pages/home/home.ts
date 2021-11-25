@@ -20,5 +20,8 @@ export class HomePage {
     //modal.present();
   
   }
+  perfil(){
+    this.navCtrl.push('PerfilPage')
+  }
 
 }
