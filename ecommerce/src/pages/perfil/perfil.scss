@@ -1,23 +1,24 @@
 page-perfil {
-    .conteudo{
-        background: url('../../assets/imgs/bgblack.jpeg') no-repeat center /cover transparent;
+
+        //background: url('../../assets/imgs/bgblack.jpeg') no-repeat center /cover transparent;
 
         .conteudo-input {
             ion-item {
                 //background-color: transparent;
                 border-radius: 30px;
-                background-color: rgba(255, 255, 255, 0.3) !important;
+                background-color: rgb(255, 255, 255) !important;
             }
             ion-input {
-                color: white;
+                color: rgb(0, 0, 0);
             }
             ::placeholder {
                 color: rgb(211, 207, 207);
             }
+            transparent{
+                color:rgba(253, 253, 253, 0.062)
+            }
         }
-        .centro{
-            text-align: center;
-        }
+
         .img-center {
 
             img {
@@ -28,13 +29,13 @@ page-perfil {
         }
 
         .margin-input-top {
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .margin-input-top-2 {
             margin-top: 0px;
         }
         .margin-btn-top {
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .btn-2{
@@ -45,13 +46,6 @@ page-perfil {
             border-radius: 30px;
             text-transform: capitalize;
         }
-        .btn-sair {
-            background-color: #cc8b00;
-            border-radius: 30px;
-            text-transform: capitalize;
-        }
     
-    
-    }
     
 }

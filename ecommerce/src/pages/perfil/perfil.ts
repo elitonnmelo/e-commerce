@@ -5,12 +5,7 @@ import { UserProvider } from '../../providers/user/user';
 import { User } from '../../models/user';
 import { FirebaseStorageProvider } from '../../providers/firebase-storage/firebase-storage';
 
-/**
- * Generated class for the PerfilPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
