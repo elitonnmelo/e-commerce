@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+
+    <button ion-button clear menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+
+    <ion-buttons end>
+      <button ion-button clear class="notification" >
+        <ion-icon name="notifications-outline" color="dark"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding fullscreen='true'>
+
+  <h1 class='title'>Carrinho</h1>
+
+  <div class="card-items">
+
+    <ion-card>
+
+      <ion-card-content>
+        <div class="item-img">
+          <img src="../../assets/imgs/background-mel.jpg">
+        </div>
+
+        <div class="item-info">
+          <p>Mel de Abelha</p>
+          <p>Fazenda do João</p>
+          <p> R$ 30,00 </p>
+
+          <div class="qty-selector">
+            <button ion-button clear >-</button>
+            <label>1</label>
+            <button ion-button clear >+</button>
+          </div>
+
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+
+      <ion-card-content>
+        <div class="item-img">
+          <img src="../../assets/imgs/frango.jpg">
+        </div>
+
+        <div class="item-info">
+          <p>Frango</p>
+          <p>Fazenda do João</p>
+          <p> R$ 20,00 </p>
+
+          <div class="qty-selector">
+            <button ion-button clear >-</button>
+            <label>1</label>
+            <button ion-button clear >+</button>
+          </div>
+
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+
+      <ion-card-content>
+        <div class="item-img">
+          <img src="../../assets/imgs/carne_boi.png">
+        </div>
+
+        <div class="item-info">
+          <p>Carne Bovina</p>
+          <p>Fazenda do João</p>
+          <p> R$ 36,00 /kg </p>
+
+          <div class="qty-selector">
+            <button ion-button clear >-</button>
+            <label>1</label>
+            <button ion-button clear >+</button>
+          </div>
+
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    </div>
+
+</ion-content>
+
+<ion-footer translucent='true' class="ion-no-border">
+  <ion-toolbar color='translucent'>
+    <button ion-button block class="main-buton">continue</button>
+  </ion-toolbar>
+</ion-footer>

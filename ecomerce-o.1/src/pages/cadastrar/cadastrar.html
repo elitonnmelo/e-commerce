@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+
+    <button ion-button clear menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+
+    <ion-buttons end>
+      <button ion-button clear class="notification" >
+        <ion-icon name="notifications-outline" color="dark"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-avatar item-start>
+    <img [src]="foto">
+  </ion-avatar>
+
+  <button ion-button clear (click)="escolherFoto()">Escolher Foto</button>
+  <input type="file" #fileUserPhoto style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+
+  <ion-item>
+    <ion-label floating>Produto</ion-label>
+    <ion-input type="text" [(ngModel)]="item.nome" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Preço</ion-label>
+    <ion-input type="text" [(ngModel)]='item.preco' ></ion-input>
+  </ion-item>
+
+  <button ion-button (click)='salvar()'>Salvar</button>
+
+</ion-content>

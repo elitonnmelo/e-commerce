@@ -3,13 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-//import { Home1Page } from '../pages/home1/home1';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -23,6 +19,9 @@ import { database } from 'firebase';
 import { IonicStorageModule } from '@ionic/storage';
 import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
 import { ProdutosProvider } from '../providers/produtos/produtos';
+import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmir3XOsL2YdFjsK80BXIM_1Aok3zRdqo",
@@ -35,13 +34,12 @@ const firebaseConfig = {
   databaseURL: "https://e-commerce-398eb-default-rtdb.firebaseio.com/"
 };
 
+
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    //Home1Page,
-    ContactPage,
-    TabsPage
+    HomePage,
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -53,23 +51,21 @@ const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    //Home1Page,
-    TabsPage
+    HomePage,
+    ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider,
     FirebaseStorageProvider,
-    ProdutosProvider
+    ProdutosProvider,
+    UserProvider
   ]
 })
 export class AppModule {}
