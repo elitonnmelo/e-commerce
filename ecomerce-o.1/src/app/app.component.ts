@@ -15,7 +15,7 @@ import { UserProvider } from '../providers/user/user';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = 'LoginPage';
+  rootPage: any = 'BemVindoPage';
 
   pages: Array<{title: string, component: any}>;
   
@@ -55,7 +55,7 @@ export class MyApp {
         if(_usuario && _usuario.length > 0){
           this.rootPage = HomePage;
         } else{
-          this.rootPage = 'LoginPage';
+          this.rootPage = 'BemVindoPage';
         }
       })
     });
