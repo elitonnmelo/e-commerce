@@ -6,36 +6,76 @@ ion-header {
     .back-button {
         color: white;
     }
-}.conteudo{
-    background: url('../../assets/imgs/bg.jpeg') no-repeat center /cover transparent;
-    //inicio
-    .conteudo-input {
-        ion-item {
-            //background-color: transparent;
-            border-radius: 30px;
-            background-color: rgba(255, 255, 255, 0.3) !important;
-        }
-        ion-input {
-            color: white;
-        }
-        ::placeholder {
-            color: rgb(211, 207, 207);
-        }
-    }
+}.conteudo-recuperar{
+ 
     .margin-input-top {
-        margin-top: 20px;
+        margin-top: 330px;
     }
     .margin-btn-top {
-        margin-top: 30px;
+        margin-top: 64px;
+    }
+    h1{
+        position: absolute;
+        width: 350px;
+        height: 360px;
+        margin-left: 6%;
+
+        font-family: 'Cabin', sans-serif; 
+        font-style: normal;
+        font-weight: normal;
+        font-size: 40px;
+        line-height: 49px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #0F4F35;
+    }
+    h3{
+        position: absolute;
+        width: 310px;
+        height: 505px;
+        margin-left: 2%;
+
+        font-family: 'Cabin', sans-serif; 
+        font-style: normal;
+        font-weight: normal;
+        font-size: 23px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #2C2B2B;
+
     }
     .btn {
-        background-color: #008080;
-        border-radius: 30px;
-        text-transform: capitalize;
+        position: absolute;
+        width: 280px;
+        height: 58px;
+
+        background: #015241;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        //fonte
+        font-family: 'Cabin', sans-serif; 
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 36px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-left: 7%;
     }
     .grid-logo {
         ion-col {
             text-align: center;
+            margin-top: 45%;
+            position: absolute;
+            width: 258px;
+            height: 220px;
+            mix-blend-mode: darken;
         }
         
     }

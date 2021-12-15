@@ -1,4 +1,4 @@
-ion-header {
+/*ion-header {
     .toolbar-title {
         color: white;
     }
@@ -6,10 +6,10 @@ ion-header {
     .back-button {
         color: white;
     }
-}.conteudo{
+}*/.conteudo-login{
     //background: url('../../assets/imgs/bg.jpeg') no-repeat center /cover transparent;
     //inicio
-    .conteudo-input {
+    /*.conteudo-input {
         ion-item {
             //background-color: transparent;
             border-radius: 30px;
@@ -18,36 +18,115 @@ ion-header {
         ion-input {
             color: white;
         }
-        ::placeholder {
-            color: rgb(211, 207, 207);
-        }
-    }
-    .margin-input-top {
-        margin-top: 20px;
+        
+    }*/
+    .margin-input-top1 {
+        margin-top: 5px;
+    }.margin-input-top2 {
+        margin-top: 10px;
     }
     .margin-btn-top {
-        margin-top: 30px;
+        margin-top: 67px;
+    }
+    .btn-senha{
+        position: absolute;
+        width: 204px;
+        height: 30px;
+
+        font-family: 'Cabin', sans-serif; 
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+
+        color: rgba(1, 82, 65, 0.6);
     }
     .btn {
-        background-color: #008080;
-        border-radius: 30px;
-        text-transform: capitalize;
+        position: absolute;
+            width: 280px;
+            height: 58px;
+
+            background: #015241;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            //fonte
+            position: absolute;
+
+
+            font-family: 'Cabin', sans-serif; 
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 36px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-left: 7%;
+    }
+    p{
+        color: #FFF;
     }
     .grid-logo {
         ion-col {
             text-align: center;
-        }
+            //margin-top: 50%;
+            margin-bottom: -12em;
+            position: absolute;
+            width: 258px;
+            height: 220px;
+
+            //background: url(imagem_2021-12-06_134859.png);
+            mix-blend-mode: darken;
+            }
+        
         
     }
     
     .margin-btnlink-top {
         margin-top: 10px;
     }
+    h1{
+        //position: absolute;
+        width: 350px;
+        //height: 360px;
+        margin-left: 4%;
+        margin-top: 3em;
+
+        font-family: 'Cabin', sans-serif; 
+        font-style: normal;
+        font-weight: normal;
+        font-size: 40px;
+        line-height: 49px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #0F4F35;
+    }
 
     
 //fim
 }
-.btn-link {
-    color: white;
-    text-transform: none;
+h5 {
+    font-size: 1.7rem;
+    margin-top: 1px;
+    margin-left: 0%;
+}
+.btn-link-login {
+    //position: absolute;
+    width: 194x;
+    height: 14px;
+
+    font-family: 'Cabin', sans-serif; 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #015241;
 }

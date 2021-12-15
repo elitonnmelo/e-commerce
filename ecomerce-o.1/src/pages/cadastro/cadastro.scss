@@ -1,43 +1,58 @@
 page-cadastro {
-    ion-header {
-        .toolbar-title {
-            color: white;
-        }
-
-        .back-button {
-            color: white;
-        }
-    }
-    .conteudo{
-        background: url('../../assets/imgs/bg.jpeg') no-repeat center /cover transparent;
-        //inicio
-        .conteudo-input {
-            ion-item {
-                //background-color: transparent;
-                border-radius: 30px;
-                background-color: rgba(255, 255, 255, 0.3) !important;
-            }
-            ion-input {
-                color: white;
-            }
-            ::placeholder {
-                color: rgb(211, 207, 207);
-            }
-        }
+    
+    .conteudo-cadastro{
+       
         .margin-input-top {
-            margin-top: 20px;
+            margin-top: 2px;
+        }
+        .margin-input-top1 {
+            margin-top: 125px;
         }
         .margin-btn-top {
-            margin-top: 30px;
+            margin-top: 50px;
         }
         .btn {
-            background-color: #008080;
-            border-radius: 30px;
-            text-transform: capitalize;
+            position: absolute;
+            width: 280px;
+            height: 58px;
+            background: #015241;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            //fonte
+            font-family: 'Cabin', sans-serif; 
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 36px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-left: 7%;
+        }
+        h1{
+            position: absolute;
+            width: 308px;
+            height: 220px;
+            margin-left: 4%;
+
+            font-family: 'Cabin', sans-serif; 
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            line-height: 49px;
+            display: flex;
+            align-items: center;
+
+            color: #0F4F35;
         }
         .grid-logo {
             ion-col {
                 text-align: center;
+                margin-top: 30%;
+                position: absolute;
+                width: 185px;
+                height: 170px;
+                mix-blend-mode: darken;
             }
             
         }
@@ -46,7 +61,5 @@ page-cadastro {
             margin-top: 10px;
         }
 
-        
-    //fim
     }
 }
