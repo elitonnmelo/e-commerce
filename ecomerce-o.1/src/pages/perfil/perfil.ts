@@ -20,12 +20,29 @@ export class PerfilPage {
   foto = 'assets/imgs/user.png';
   isUploaded = false;
 
+  items = [
+    'Meu carrinho',
+    'Favoritos',
+    'Meus pedidos',
+    'Meus serviços',
+    'Dados da conta',
+    'Endereços para entrega',
+    'Formas de pagamento'
+    
+  ];
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage,
     public firebaseStorageProvider: FirebaseStorageProvider,
     public userProvider: UserProvider
     
     ) {
+  }
+  itemSelected(item: string) {
+    console.log("Item selecionado", item);
+    if (item == "'Dados da conta"){
+      this.navCtrl.push('CarrinhoPage')
+    }
   }
 
   ionViewDidLoad() {

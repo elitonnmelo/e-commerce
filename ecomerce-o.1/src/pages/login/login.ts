@@ -51,7 +51,7 @@ export class LoginPage {
   showAlertErro() {
     const alert = this.alertCtrl.create({
       title: 'Erro',
-      subTitle: 'Erro, não foi possível realizar seu login. Por favor verificas seu e-mail e senha!',
+      subTitle: 'Erro, não foi possível realizar seu login. Por favor verificar seu e-mail e senha!',
       buttons: ['OK']
     });
     alert.present();

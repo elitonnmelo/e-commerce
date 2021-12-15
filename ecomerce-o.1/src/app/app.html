@@ -2,9 +2,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
 <ion-menu class="ion-menu" [content]="content" type="overlay">
-  
+
+  <ion-header>
+    <ion-navbar >
+      <ion-title class="navbar ">MENU</ion-title>
+    </ion-navbar>
+  </ion-header>
 
   <ion-content>
+
+    <ion-item class="tamanho-img">
+      <ion-avatar  item-start>
+        <img width="90px" height="90px"  [src]="foto">
+      </ion-avatar>
+      
+      <ion-item >
+        <ion-input class="conteudo-input-nome" disabled="true" type="text" [(ngModel)]="item.nome" ></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input class="conteudo-input-email" disabled="true" type="text" [(ngModel)]="item.email"  ></ion-input>
+      </ion-item>
+    </ion-item>
     <div class="main-list">
 
       <ion-list class="ion-list">

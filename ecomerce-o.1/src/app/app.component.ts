@@ -8,12 +8,20 @@ import { ListPage } from '../pages/list/list';
 
 import {Storage} from "@ionic/storage";
 import { UserProvider } from '../providers/user/user';
+import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
+import { User } from '../models/user';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  @ViewChild('fileUserPhoto') fileUserPhoto;
+  
+  item = new User();
+  foto = 'assets/imgs/user.png';
+  isUploaded = false;
+
 
   rootPage: any = 'BemVindoPage';
 
@@ -26,7 +34,8 @@ export class MyApp {
     public splashScreen: SplashScreen,
     public storage: Storage,
     public userProvider: UserProvider,
-    public menuController: MenuController
+    public menuController: MenuController,
+    public firebaseStorageProvider: FirebaseStorageProvider
 
     ) {
     this.initializeApp();
@@ -43,8 +52,35 @@ export class MyApp {
     ];
 
   }
-
+  //novo
+  
+  processWebImage($event){
+    this.firebaseStorageProvider.processWebImage($event, (imageBase64, w, h) => {
+      this.foto = imageBase64;
+      this.isUploaded = true;
+    });
+  }
+  //ate aqui
   initializeApp() {
+    console.log("0")
+    this.userProvider.lerLocal().then(_userId => {
+      console.log("1")
+      this.userProvider.byId(_userId).subscribe(_user => {
+        //this.item = new User();
+        this.item.id = _userId;
+        this.item.nome = _user['nome'];
+        console.log("2")
+        this.item.email = _user['email'];
+
+
+        const path = '/user/' + this.item.id + '/foto.jpg';
+        this.firebaseStorageProvider.downloadImageStorage(path).then(_data => {
+          this.foto = _data;
+
+        });
+
+      })
+    }) 
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

@@ -18,13 +18,17 @@ page-perfil {
             color:rgba(253, 253, 253, 0.062)
         }
     }
+    .text-input{
+        text-align: center;
+    }
 
     .img-center {
 
         img {
             margin:0 auto;
-            width: 100px;
-            height: 100px;
+            width: 160px;
+            height: 160px;
+            margin-top: 2em;
         }
     }
 

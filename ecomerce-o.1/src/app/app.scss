@@ -1,9 +1,9 @@
 .ion-menu{
-    width:100%;
+    width:80%;
   }
   
   .main-list{
-    height: 100%;
+    height: 75%;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -37,4 +37,42 @@
         --ripple-color: transparent;
       }
   }
+.navbar{
+  background: rgba(1, 82, 65, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   
+}
+.toolbar-title {
+  //display: block;
+  //overflow: hidden;
+  margin-left: -60%;
+  //width: 100%;
+  //text-overflow: ellipsis;
+ // white-space: nowrap;
+}
+
+.tamanho-img{
+  ion-avatar{
+    img{
+      width: 70px;
+      height: 70px;
+    }
+  }
+  
+}
+.conteudo-input-nome{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 22px;
+  color: black;
+}
+.conteudo-input-email{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: black;
+}

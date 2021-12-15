@@ -6,7 +6,28 @@
     .back-button {
         color: white;
     }
-}*/.conteudo-login{
+}*/
+.navbar{
+    background: rgba(1, 82, 65, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+.conteudo-title{
+    position: absolute;
+    width: 81px;
+    height: 66px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+
+}
+.conteudo-login{
     //background: url('../../assets/imgs/bg.jpeg') no-repeat center /cover transparent;
     //inicio
     /*.conteudo-input {
