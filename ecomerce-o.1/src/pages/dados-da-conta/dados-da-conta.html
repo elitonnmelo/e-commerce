@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="dark">Dados da Conta</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark"  (click)="fechar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="conteudo-dados">
+  <ion-item>
+    <ion-avatar class="img-center">
+      <img  [src]="foto">
+      <button ion-button clear block (click)="escolherFoto()">Escolher foto</button>
+      <input type="file" #fileUserPhoto style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+    </ion-avatar>
+  </ion-item>
+
+  <ion-grid class="grid-list">
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center col-12 col-lg-4 col-xl-4>
+        <ion-list >
+      
+          <ion-item>
+            <ion-label inset>Nome</ion-label>
+            <ion-input type="text" [(ngModel)]="item.nome"></ion-input>
+          </ion-item> 
+          <ion-item >
+            <ion-label inset>Email</ion-label>
+            <ion-input type="text" [(ngModel)]="item.email"></ion-input>
+          </ion-item>  
+      
+          
+        </ion-list>
+        <button ion-button block (click)="salvar()" class="btn-salvar">Salvar</button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

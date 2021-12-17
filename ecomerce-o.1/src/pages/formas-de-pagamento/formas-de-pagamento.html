@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="dark">Formas de Pagemento</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark"  (click)="fechar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="conteudo-pagamento" padding>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img width="77px" height="74px" src="../../assets/imgs/icon-cartao.png">
+      </ion-avatar>
+      <h2>cartão de crédito</h2>
+      <h3>Fulano de tal</h3>
+      <p>nº 1234-5678-1234-5856</p>
+      <p>valide: 10/29</p>
+      <p>cvv: ***</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img width="100px" height="94px" src="../../assets/imgs/icon-boleto.png">
+      </ion-avatar>
+      <h2>Boleto Bancário</h2>
+      
+    </ion-item>
+  </ion-list>
+
+  <button clear block class="btn-add" color="dark" ion-button icon-start>
+    <ion-icon name="add"></ion-icon>
+    Adicionar Cartão
+    
+  </button>
+  <button ion-button block  (click)="usarEndereco()" class="btn-usar" >Usar esse endereço</button>
+
+</ion-content>

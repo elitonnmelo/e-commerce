@@ -1,5 +1,5 @@
 import { Component, ViewChild  } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 import { UserProvider } from '../../providers/user/user';
 import { User } from '../../models/user';
@@ -34,15 +34,33 @@ export class PerfilPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public storage: Storage,
     public firebaseStorageProvider: FirebaseStorageProvider,
-    public userProvider: UserProvider
+    public userProvider: UserProvider,
+    public modalCtrl: ModalController,
+    public viewCtrl: ViewController
     
     ) {
   }
   itemSelected(item: string) {
     console.log("Item selecionado", item);
-    if (item == "'Dados da conta"){
-      this.navCtrl.push('CarrinhoPage')
+    if (item == "Dados da conta"){
+      //this.navCtrl.push('DadosDaContaPage')
+      const modal = this.modalCtrl.create('DadosDaContaPage');
+      modal.present();
     }
+    if (item == "Formas de pagamento"){
+      //this.navCtrl.push('FormasDePagamentoPage')
+      const modal = this.modalCtrl.create('FormasDePagamentoPage');
+      modal.present();
+    }
+    if (item == "Endereços para entrega"){
+      //this.navCtrl.push('EndereçosPage')
+      const modal = this.modalCtrl.create('EndereçosPage');
+      modal.present();
+    }
+    
+  }
+  fechar() {
+    this.viewCtrl.dismiss();
   }
 
   ionViewDidLoad() {

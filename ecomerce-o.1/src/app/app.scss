@@ -42,20 +42,38 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   
 }
-.toolbar-title {
+//.toolbar-title {
   //display: block;
   //overflow: hidden;
-  margin-left: -60%;
+  //margin-left: -60%;
   //width: 100%;
   //text-overflow: ellipsis;
  // white-space: nowrap;
-}
+//}
+.title-menu{
+  ion-title{
+    display: block;
+    overflow: hidden;
+    margin-left: -30%;
+    width: 100%;
+    font-family: 'Cairo', sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    //margin-top: 1em;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 56px;
+    display: flex;
 
+  }
+  
+}
 .tamanho-img{
   ion-avatar{
     img{
-      width: 70px;
-      height: 70px;
+      width: 90px;
+      height: 90px;
     }
   }
   
@@ -67,6 +85,7 @@
   font-size: 20px;
   line-height: 22px;
   color: black;
+  
 }
 .conteudo-input-email{
   font-family: 'Roboto', sans-serif;
@@ -75,4 +94,14 @@
   font-size: 15px;
   line-height: 18px;
   color: black;
+  /*position: relative;
+  margin-left: -10%;
+  margin: -12px 15 px 3px 0;
+  width: calc(100% - 4px);*/
+}
+input:disabled {
+  cursor: default;
+  background-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+  color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+  border-color: rgb(0, 0, 0);
 }
