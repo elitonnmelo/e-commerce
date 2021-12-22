@@ -41,7 +41,7 @@ export class DadosDaContaPage {
     console.log('ionViewDidLoad DadosDaContaPage');
     this.userProvider.lerLocal().then(_userId => {
       console.log('teste 0', _userId);
-      this.userProvider.byId(_userId).subscribe(_user => {
+      this.userProvider.byIdFS(_userId).subscribe(_user => {
         console.log('teste 3', _user);
         this.item = new User();
         this.item.id = _userId;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Usuarios } from '../../models/usuarios';
 import { UserProvider } from '../../providers/user/user';
 
 /**
@@ -19,6 +20,7 @@ export class CadastroPage {
   email = '';
   senha = '';
   confirmarSenha = '';
+  usuarios = new Usuarios;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public userProvider: UserProvider,
@@ -42,6 +44,18 @@ export class CadastroPage {
     this.userProvider.cadastro(usuario);
     this.showAlert();
   }
+  cadastrarFS(){
+    let usuario = {
+      nome: this.nome,
+      email: this.email,
+      senha: this.senha,
+      //confirmarSenha: this.confirmarSenha
+    }
+    this.userProvider.cadastro(usuario);
+    //this.userProvider.salvarUsuarioFS(this.usuarios)
+    this.showAlert();
+    
+  }
   showAlert() {
     const alert = this.alertCtrl.create({
       title: 'Sucesso!',
@@ -51,6 +65,8 @@ export class CadastroPage {
         text: 'OK',
           handler: data => {
             this.navCtrl.pop();
+            this.navCtrl.push('LoginPage');
+            
           }
       }]
     });

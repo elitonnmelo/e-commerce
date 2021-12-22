@@ -88,7 +88,7 @@ export class MyApp {
 
         this.userProvider.lerLocal().then(_userId => {
           console.log("1");
-          this.userProvider.byId(_userId).subscribe(_user => {
+          this.userProvider.byIdFS(_userId).subscribe(_user => {
             this.item = new User();
             this.item.id = _userId;
             this.item.nome = _user['nome'];

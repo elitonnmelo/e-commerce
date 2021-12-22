@@ -4,10 +4,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {Storage} from "@ionic/storage";
 import { AngularFirestore } from 'angularfire2/firestore';
+import { Usuarios } from '../../models/usuarios';
 
 
 @Injectable()
 export class UserProvider {
+  ENTIDADE = '/usuarios';
 
   constructor(
     public http: HttpClient,
@@ -24,6 +26,7 @@ export class UserProvider {
   login(email, senha){
     return this.afa.auth.signInWithEmailAndPassword(email, senha);
   }
+ 
 
   cadastro(usuario){
     this.afa.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha)
@@ -31,7 +34,7 @@ export class UserProvider {
         usuario.id = _usuarioAuth.uid;
         delete usuario.senha; 
 
-        this.salvarUsuario(usuario);
+        this.salvarUsuarioFS(usuario);
       }).catch (error =>{
 
       });
@@ -39,6 +42,9 @@ export class UserProvider {
   }
   byId(id: string) {
     return this.afd.object('/usuarios/' + id).valueChanges();
+  }
+  byIdFS(id: string){
+    return this.afs.doc('/usuarios/' + id).valueChanges();
   }
 
   salvarLocal(id) {
@@ -60,6 +66,12 @@ export class UserProvider {
 
   salvarUsuario(usuario){
     this.afd.object('/usuarios/' + usuario.id).update(usuario);
+  }
+  salvarUsuarioFS(usuario: Usuarios){
+    const obj = JSON.parse(JSON.stringify(usuario));
+    
+    //const id = this.afs.createId();
+    this.afs.doc(this.ENTIDADE + '/' + usuario.id).set(obj);
   }
 
 }
