@@ -28,6 +28,22 @@ page-formas-de-pagamento {
             }
             
         }
+        .toolbar-title {
+            color: black;
+            position: absolute;
+            width: 360px;
+            height: 41px;
+
+            font-family: 'Roboto', sans-serif;
+            margin-left: -10%;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 25px;
+            margin-top: 2px;
+            line-height: 35px;
+            display: flex;
+            align-items: center;
+        }
     }
 
 }

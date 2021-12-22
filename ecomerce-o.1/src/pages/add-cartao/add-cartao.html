@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar class="conteudo-addCartao">
+    <ion-title color="dark" class="toolbar-title">Adicionar Cartão</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark"  (click)="fechar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="conteudo-addCartao" padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Selecionar tipo de cartão</ion-label>
+      <ion-select [(ngModel)]="selecionarTipo">
+        <ion-option value="debito">Débito</ion-option>
+        <ion-option value="credito">Crédito</ion-option>
+        <ion-option value="CeD">Crédito/Débito</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Nº do Cartão</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Validade</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>CVV</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Nome expresso no cartão</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block  (click)="addNovoCartao()" class="btn-usar" >Adicionar Cartão</button>
+
+
+</ion-content>

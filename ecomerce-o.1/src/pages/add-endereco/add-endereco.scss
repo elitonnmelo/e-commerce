@@ -1,16 +1,6 @@
-page-dados-da-conta {
-    .img-center {
-        margin-left: auto;
-        margin-right: auto;
-
-        img {
-            margin:0 auto;
-            width: 120px;
-            height: 120px;
-        }
-    }
-    .conteudo-dados{
-        .btn-salvar{
+page-add-endereco {
+    .conteudo-addEndereco{
+        .btn-usar{
             position: absolute;
             width: 340px;
             height: 58px;
@@ -18,8 +8,7 @@ page-dados-da-conta {
             background: #015241;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 15px;
-            margin-top: 6em;
-            margin-left: -2.5%;
+            margin-top: 3em;
             //conteudo texto
             font-family: 'Cabin', sans-serif; 
             font-style: normal;
@@ -33,15 +22,15 @@ page-dados-da-conta {
         .toolbar-title {
             color: black;
             position: absolute;
-            width: 283px;
+            width: 340px;
             height: 41px;
 
             font-family: 'Roboto', sans-serif;
             margin-left: -10%;
             font-style: normal;
             font-weight: normal;
-            font-size: 25px;
             margin-top: 2px;
+            font-size: 25px;
             line-height: 35px;
             display: flex;
             align-items: center;

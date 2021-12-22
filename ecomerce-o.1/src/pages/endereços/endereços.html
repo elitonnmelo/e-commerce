@@ -1,7 +1,7 @@
 
 <ion-header>
-  <ion-navbar>
-    <ion-title color="dark">Enredeços</ion-title>
+  <ion-navbar class="conteudo-endereco">
+    <ion-title color="dark" class="toolbar-title">Enredeços</ion-title>
     <ion-buttons end>
       <button ion-button icon-only color="dark"  (click)="fechar()">
         <ion-icon name="close"></ion-icon>
@@ -16,13 +16,15 @@
       <ion-avatar item-start>
         <img width="77px" height="74px" src="../../assets/imgs/icon-casa.png">
       </ion-avatar>
-      <h2>Finn</h2>
-      <h3>Don't Know What To Do!</h3>
-      <p>I've had a pretty messed up day. If we just...</p>
+      <h2>Rua: Raimundo Nonato Uchôa </h2>
+      <h3>nº 151</h3>
+      <h3>Boa Viagem</h3>
+      <p>63870-000</p>
+      <p>Casa</p>
     </ion-item>
   </ion-list>
 
-  <button clear block class="btn-add" color="dark" ion-button icon-start>
+  <button clear block class="btn-add" (click)="addEndereco()" color="dark" ion-button icon-start>
     <ion-icon name="add"></ion-icon>
     Adicionar endereço
     

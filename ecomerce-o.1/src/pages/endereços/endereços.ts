@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the EndereçosPage page.
@@ -17,6 +17,7 @@ export class EndereçosPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
+    public modalCtrl: ModalController,
     public viewCtrl: ViewController
     
     ) {
@@ -27,6 +28,10 @@ export class EndereçosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EndereçosPage');
+  }
+  addEndereco(){
+    const modal = this.modalCtrl.create('AddEnderecoPage');
+    modal.present();
   }
   usarEndereco(){
 

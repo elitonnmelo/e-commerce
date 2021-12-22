@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar class="conteudo-addEndereco">
+    <ion-title color="dark" class="toolbar-title">Adicionar Enredeço</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark"  (click)="fechar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="conteudo-addEndereco" padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Rua</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Bairro</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item><ion-item>
+      <ion-label floating>Cidade</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Complemento</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Numero</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>CEP</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+
+  <button ion-button block  (click)="addNovoEndereco()" class="btn-usar" >Adicionar Endereço</button>
+
+</ion-content>

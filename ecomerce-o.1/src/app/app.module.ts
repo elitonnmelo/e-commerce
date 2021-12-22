@@ -21,6 +21,7 @@ import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-
 import { ProdutosProvider } from '../providers/produtos/produtos';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { EnderecosProvider } from '../providers/enderecos/enderecos';
 
 
 const firebaseConfig = {
@@ -65,7 +66,8 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseStorageProvider,
     ProdutosProvider,
-    UserProvider
+    UserProvider,
+    EnderecosProvider
   ]
 })
 export class AppModule {}

@@ -54,22 +54,17 @@ export class MyApp {
   }
   //novo
   
-  processWebImage($event){
-    this.firebaseStorageProvider.processWebImage($event, (imageBase64, w, h) => {
-      this.foto = imageBase64;
-      this.isUploaded = true;
-    });
-  }
+    
   //ate aqui
   initializeApp() {
-    console.log("0")
+    /*console.log("0");
     this.userProvider.lerLocal().then(_userId => {
-      console.log("1")
+      console.log("1");
       this.userProvider.byId(_userId).subscribe(_user => {
         this.item = new User();
         this.item.id = _userId;
         this.item.nome = _user['nome'];
-        console.log("2")
+        console.log("2");
         this.item.email = _user['email'];
 
 
@@ -80,22 +75,75 @@ export class MyApp {
         });
 
       })
-    }) 
+    }) */
     this.platform.ready().then(() => {
+      console.log("5");
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
       this.userProvider.lerLocal().then(_usuario => {
+        console.log("4");
+
+        this.userProvider.lerLocal().then(_userId => {
+          console.log("1");
+          this.userProvider.byId(_userId).subscribe(_user => {
+            this.item = new User();
+            this.item.id = _userId;
+            this.item.nome = _user['nome'];
+            console.log("2");
+            this.item.email = _user['email'];
+
+
+            const path = '/user/' + this.item.id + '/foto.jpg';
+            this.firebaseStorageProvider.downloadImageStorage(path).then(_data => {
+              this.foto = _data;
+
+            });
+
+          })
+        })
+
+        
         if(_usuario && _usuario.length > 0){
           this.rootPage = HomePage;
+
+          console.log("0");
+         /* this.userProvider.lerLocal().then(_userId => {
+            console.log("1");
+            this.userProvider.byId(_userId).subscribe(_user => {
+              this.item = new User();
+              this.item.id = _userId;
+              this.item.nome = _user['nome'];
+              console.log("2");
+              this.item.email = _user['email'];
+
+
+              const path = '/user/' + this.item.id + '/foto.jpg';
+              this.firebaseStorageProvider.downloadImageStorage(path).then(_data => {
+                this.foto = _data;
+
+              });
+
+            })
+          }) */
+
+
         } else{
           this.rootPage = 'BemVindoPage';
         }
       })
     });
   }
+
+  processWebImage($event){
+      this.firebaseStorageProvider.processWebImage($event, (imageBase64, w, h) => {
+        this.foto = imageBase64;
+        this.isUploaded = true;
+      });
+    }
+
 
   openPage(page) {
     // Reset the content nav to have just this page

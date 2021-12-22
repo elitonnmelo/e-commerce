@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the FormasDePagamentoPage page.
@@ -16,6 +16,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class FormasDePagamentoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
+    public modalCtrl: ModalController,
     public viewCtrl: ViewController
 
     ) {
@@ -26,6 +27,13 @@ export class FormasDePagamentoPage {
   }
   fechar() {
     this.viewCtrl.dismiss();
+  }
+  addCartao(){
+    const modal = this.modalCtrl.create('AddCartaoPage');
+    modal.present();
+  }
+  usarCartao(){
+    
   }
 
 }

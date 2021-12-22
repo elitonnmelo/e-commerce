@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title color="dark">Formas de Pagemento</ion-title>
+  <ion-navbar class="conteudo-pagamento">
+    <ion-title color="dark" class="toolbar-title">Método de Pagemento</ion-title>
     <ion-buttons end>
       <button ion-button icon-only color="dark"  (click)="fechar()">
         <ion-icon name="close"></ion-icon>
@@ -30,11 +30,11 @@
     </ion-item>
   </ion-list>
 
-  <button clear block class="btn-add" color="dark" ion-button icon-start>
+  <button clear block class="btn-add" (click)="addCartao()" color="dark" ion-button icon-start>
     <ion-icon name="add"></ion-icon>
     Adicionar Cartão
     
   </button>
-  <button ion-button block  (click)="usarEndereco()" class="btn-usar" >Usar esse endereço</button>
+  <button ion-button block  (click)="usarCartao()" class="btn-usar" >Usar esse cartão</button>
 
 </ion-content>
