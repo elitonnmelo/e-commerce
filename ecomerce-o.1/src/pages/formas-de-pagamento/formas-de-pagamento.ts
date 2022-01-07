@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
+import { CartaoProvider } from '../../providers/cartao/cartao';
 
-/**
- * Generated class for the FormasDePagamentoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -14,26 +10,39 @@ import { IonicPage, ModalController, NavController, NavParams, ViewController } 
   templateUrl: 'formas-de-pagamento.html',
 })
 export class FormasDePagamentoPage {
+  itemArr = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
     public modalCtrl: ModalController,
-    public viewCtrl: ViewController
-
+    public viewCtrl: ViewController,
+    public cartaoProvider: CartaoProvider
+    
     ) {
+      this.cartaoProvider.listarFS().subscribe(_data => {
+        console.log(_data);
+        this.itemArr = _data;
+      })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FormasDePagamentoPage');
+  addItem() {
+    const modal = this.modalCtrl.create('AddCartaoPage');
+    modal.present();
+  }
+  usarBoleto(){
+    console.log("O metodo de pagamento utilizado foi boleto")
+  }
+
+  editItem(_item) {
+    const itemID = _item.key;
+    const item = _item.value;
+
+    const modal = this.modalCtrl.create('AddCartaoPage', { itemID: itemID, item: item } );
+    modal.present();
   }
   fechar() {
     this.viewCtrl.dismiss();
   }
-  addCartao(){
-    const modal = this.modalCtrl.create('AddCartaoPage');
-    modal.present();
-  }
-  usarCartao(){
-    
-  }
 
 }
+

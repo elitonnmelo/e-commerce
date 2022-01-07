@@ -14,7 +14,7 @@
   <ion-list>
     <ion-item>
       <ion-label>Selecionar tipo de cartão</ion-label>
-      <ion-select [(ngModel)]="selecionarTipo">
+      <ion-select [(ngModel)]="selecionarTipo"  [(ngModel)]="item.selecionarTipo">
         <ion-option value="debito">Débito</ion-option>
         <ion-option value="credito">Crédito</ion-option>
         <ion-option value="CeD">Crédito/Débito</ion-option>
@@ -22,23 +22,24 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Nº do Cartão</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="item.numero"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Validade</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="item.validade"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>CVV</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="item.cvv"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Nome expresso no cartão</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="item.nome"></ion-input>
     </ion-item>
   </ion-list>
 
-  <button ion-button block  (click)="addNovoCartao()" class="btn-usar" >Adicionar Cartão</button>
+  <button ion-button  (click)="salvar()" class="btn-salvar" >Salvar</button>
+  <button ion-button  color="danger" (click)="excluir()" *ngIf="itemID !== undefined" class="btn-excluir">Excluir</button>
 
 
 </ion-content>

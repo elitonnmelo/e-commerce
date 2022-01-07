@@ -22,6 +22,7 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { EnderecosProvider } from '../providers/enderecos/enderecos';
+import { CartaoProvider } from '../providers/cartao/cartao';
 
 
 const firebaseConfig = {
@@ -67,7 +68,8 @@ const firebaseConfig = {
     FirebaseStorageProvider,
     ProdutosProvider,
     UserProvider,
-    EnderecosProvider
+    EnderecosProvider,
+    CartaoProvider
   ]
 })
 export class AppModule {}

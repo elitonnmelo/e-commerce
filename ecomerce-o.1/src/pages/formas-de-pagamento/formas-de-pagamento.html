@@ -11,30 +11,29 @@
 
 <ion-content class="conteudo-pagamento" padding>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let item of itemArr" (click)="editItem(item)">
       <ion-avatar item-start>
         <img width="77px" height="74px" src="../../assets/imgs/icon-cartao.png">
       </ion-avatar>
-      <h2>cartão de crédito</h2>
-      <h3>Fulano de tal</h3>
-      <p>nº 1234-5678-1234-5856</p>
-      <p>valide: 10/29</p>
-      <p>cvv: ***</p>
-    </ion-item>
-    <ion-item>
+      <h2>Cartão de {{item.value.selecionarTipo}}</h2>
+      <h2>{{item.value.nome}}</h2>
+      <h3>Nº {{item.value.numero}}</h3>
+      <h3>{{item.value.validade}}</h3>
+  
+    </ion-item> 
+    <ion-item (click)="usarBoleto()">
       <ion-avatar item-start>
         <img width="100px" height="94px" src="../../assets/imgs/icon-boleto.png">
       </ion-avatar>
       <h2>Boleto Bancário</h2>
       
-    </ion-item>
+    </ion-item> 
   </ion-list>
 
-  <button clear block class="btn-add" (click)="addCartao()" color="dark" ion-button icon-start>
+  <button clear block class="btn-add" (click)="addItem()" color="dark" ion-button icon-start>
     <ion-icon name="add"></ion-icon>
     Adicionar Cartão
     
   </button>
-  <button ion-button block  (click)="usarCartao()" class="btn-usar" >Usar esse cartão</button>
-
+  
 </ion-content>

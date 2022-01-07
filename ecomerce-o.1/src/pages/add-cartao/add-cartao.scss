@@ -1,14 +1,35 @@
 page-add-cartao {
     .conteudo-addCartao{
-        .btn-usar{
+        .btn-salvar{
             position: absolute;
-            width: 340px;
-            height: 58px;
+            width: 160px;
+            height: 50px;
     
             background: #015241;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 15px;
-            margin-top: 5.9em;
+            margin-left: 48%;
+            margin-top: -0.9em;
+            //conteudo texto
+            font-family: 'Cabin', sans-serif; 
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 36px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .btn-excluir{
+            position: absolute;
+            width: 160px;
+            height: 50px;
+    
+            background: #a00303;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+        
+            margin-top: -0.9em;
             //conteudo texto
             font-family: 'Cabin', sans-serif; 
             font-style: normal;
@@ -22,7 +43,7 @@ page-add-cartao {
         .toolbar-title {
             color: black;
             position: absolute;
-            width: 283px;
+            width: 340px;
             height: 41px;
 
             font-family: 'Roboto', sans-serif;
@@ -36,4 +57,5 @@ page-add-cartao {
             align-items: center;
         }
     }
+
 }
