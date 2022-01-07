@@ -1,28 +1,72 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
-
-/**
- * Generated class for the CarrinhoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component } from "@angular/core";
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  LoadingController
+} from "ionic-angular";
+import { CartProvider } from "../../providers/cart/cart";
+import firebase from "firebase";
 
 @IonicPage()
 @Component({
-  selector: 'page-carrinho',
-  templateUrl: 'carrinho.html',
+  selector: "page-cart",
+  templateUrl: "carrinho.html"
 })
 export class CarrinhoPage {
+  cartItems: any[] = [];
+  totalAmount: number = 0;
+  isCartItemLoaded: boolean = false;
+  isEmptyCart: boolean = true;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private cartService: CartProvider,
+    private loadingCtrl: LoadingController
+  ) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ionViewDidLoad() { 
+    this.loadCartItems();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CarrinhoPage');
+  loadCartItems() {
+    let loader = this.loadingCtrl.create({
+      content: "Espere um instante.."
+    });
+    loader.present();
+
+    this.cartService 
+      .getCartItems()
+      .then(val => {
+        this.cartItems = val;
+
+        if (this.cartItems.length > 0) {
+          this.cartItems.forEach((v, indx) => {
+            this.totalAmount += parseInt(v.totalPrice);
+          });
+          this.isEmptyCart = false;
+          //loader.dismiss();
+
+        }
+
+        this.isCartItemLoaded = true;
+        loader.dismiss();
+      })
+      .catch(err => {});
   }
-  voltar(){
-    this.navCtrl.setRoot(HomePage)
+
+  /*checkOut() {
+    var user = firebase.auth().currentUser;
+    if (user) {
+      this.navCtrl.push("CheckoutPage");
+    } else {
+      this.navCtrl.setRoot("LoginPage");
+    }
+  }*/
+
+  removeItem(itm) {
+    this.cartService.removeFromCart(itm).then(() => {
+      this.loadCartItems();
+    });
   }
 }

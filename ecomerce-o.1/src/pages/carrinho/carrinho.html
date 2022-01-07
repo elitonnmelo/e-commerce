@@ -1,4 +1,4 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
 
     <button ion-button clear menuToggle>
@@ -13,15 +13,89 @@
     </ion-buttons>
 
   </ion-toolbar>
+</ion-header> ELITON-->
+
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Seu Carrinho
+    </ion-title>
+  </ion-navbar>
 </ion-header>
+<ion-content padding>
+  <div *ngIf="isEmptyCart" class="empty-cart">
+    <div class="empty-results">
+      <h3 text-center>
+          <ion-icon name="cart"></ion-icon>
+      </h3>
+      <p text-center>
+        Seu carrinho está vazio!
+      </p>
+    </div>
+  </div>
+  <div *ngIf="!isEmptyCart" class="cart-itm-wrap">
 
-<ion-content padding fullscreen='true'>
+    <ion-card *ngFor="let itm of  cartItems">
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-7>
+            <h3 style="margin: 7px" text-left>{{itm.name}}</h3>
 
-  <h1 class='title'>Carrinho</h1>
+            <div class="itm-footer">
+              <span (click)="removeItem(itm)" class="remove">
+                Remove
+              </span>
+              <span class="price">
+                {{itm.totalPrice | currency:'USD':true}}
+              </span>
+            </div>
+
+
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-avatar>
+                <img style="float: right" src="{{itm.thumb}}">
+              </ion-avatar>
+            </ion-item>
+            <p style="color:#333" text-right>
+              Qty: {{itm.count}}
+            </p>
+          </ion-col>
+
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="!isEmptyCart" class="single-footer">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="addCart" (click)="checkOut()">
+        <button round=true ion-button full color="secondary">
+          {{totalAmount | currency:'USD':true}} &nbsp; &nbsp; Checkout
+        </button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-footer>
+
+
+ <!--<ion-content padding fullscreen='true'>
+
+  <h1 class='title'>Meu Carrinho</h1>
 
   <div class="card-items">
 
-    <ion-card>
+   <ion-card>
 
       <ion-card-content>
         <div class="item-img">
@@ -89,7 +163,7 @@
 
     </div>
 
-</ion-content>
+</ion-content>-->
 
 <ion-footer translucent='true' class="ion-no-border">
   <ion-toolbar color='translucent'>

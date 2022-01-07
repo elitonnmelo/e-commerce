@@ -22,7 +22,11 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { EnderecosProvider } from '../providers/enderecos/enderecos';
+<<<<<<< HEAD
 import { CartaoProvider } from '../providers/cartao/cartao';
+=======
+import { CartProvider } from '../providers/cart/cart';
+>>>>>>> origin/main
 
 
 const firebaseConfig = {
@@ -69,7 +73,11 @@ const firebaseConfig = {
     ProdutosProvider,
     UserProvider,
     EnderecosProvider,
+<<<<<<< HEAD
     CartaoProvider
+=======
+    CartProvider
+>>>>>>> origin/main
   ]
 })
 export class AppModule {}
