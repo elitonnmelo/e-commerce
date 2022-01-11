@@ -72,6 +72,7 @@ export class PerfilPage {
         this.item.id = _userId;
         this.item.nome = _user['nome'];
         this.item.email = _user['email'];
+        console.log(this.item.id);
 
 
         const path = '/user/' + this.item.id + '/foto.jpg';

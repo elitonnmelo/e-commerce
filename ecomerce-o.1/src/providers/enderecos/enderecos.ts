@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Storage } from '@ionic/storage';
+import { Enderecos } from '../../models/enderecos';
+import { UserProvider } from '../user/user';
 
 /*
   Generated class for the EnderecosProvider provider.
@@ -12,22 +14,44 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class EnderecosProvider {
+  item = new Enderecos();
+  itemID = undefined;
   ENTIDADE = '/enderecos';
   id: string; 
 
   constructor(
     public http: HttpClient,
     public afd: AngularFireDatabase,
+    public userProvider: UserProvider,
     private storage: Storage,
     public afs: AngularFirestore
 
     ) {
     console.log('Hello EnderecosProvider Provider');
-  }
+    console.log('ionViewDidLoad Pageteste');
+  
+    this.userProvider.lerLocal().then(_userId => {
+      this.userProvider.byIdFS(_userId).subscribe(_user => {
+        this.item = new Enderecos();
+        this.item.id = _userId;
+        //console.log(this.item.id);
 
+      })
+    }) 
+  
+
+  }
+  
   listarFS() {
-    //return this.afs.collection(this.ENTIDADE).valueChanges();
-    return this.afs.collection(this.ENTIDADE)
+    this.userProvider.lerLocal().then(_userId => {
+      this.userProvider.byIdFS(_userId).subscribe(_user => {
+        this.item = new Enderecos();   
+        this.item.id = _userId;
+        console.log(this.item.id);
+      })
+    })
+    let uid = this.item.id;
+    return this.afs.collection('/usuarios/'+ uid + this.ENTIDADE)
     .snapshotChanges()
     .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
   }
@@ -39,16 +63,41 @@ export class EnderecosProvider {
     }) item.id = this.afs.createId();*/
     item.id = this.afs.createId();
     let item2 = JSON.parse(JSON.stringify(item))
-    return this.afs.doc(this.ENTIDADE + '/' + item2.id).set(item2);
-  
+    this.userProvider.lerLocal().then(_userId => {
+      this.userProvider.byIdFS(_userId).subscribe(_user => {
+        this.item = new Enderecos();   
+        this.item.id = _userId;
+        console.log(this.item.id);
+      })
+    })
+    let uid = this.item.id;
+    console.log(uid);
+    return this.afs.doc('/usuarios/'+ uid + this.ENTIDADE + '/' + item2.id).set(item2);
   }
 
   atualizarFS(id, item) {
-    return this.afs.doc(this.ENTIDADE + '/' + id).update(item);
+    this.userProvider.lerLocal().then(_userId => {
+      this.userProvider.byIdFS(_userId).subscribe(_user => {
+        this.item = new Enderecos();    
+        this.item.id = _userId;
+        console.log(this.item.id);
+      })
+    })
+    let uid = this.item.id;
+    return this.afs.doc('/usuarios/'+ uid + this.ENTIDADE + '/' + id).update(item);
   }
 
   removerFS(id) {
-    return this.afs.doc(this.ENTIDADE + '/' + id).delete();
+    this.userProvider.lerLocal().then(_userId => {
+      this.userProvider.byIdFS(_userId).subscribe(_user => {
+        this.item = new Enderecos();
+        this.item.id = _userId;
+        console.log(this.item.id);
+
+      })
+    })
+    let uid = this.item.id;
+    return this.afs.doc('/usuarios/'+ uid + this.ENTIDADE + '/' + id).delete();
   }
 
 }

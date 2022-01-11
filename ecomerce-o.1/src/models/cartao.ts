@@ -1,4 +1,5 @@
 export class Cartao {
+    id: string = '';
     selecionarTipo: string = '';
     nome: string = '';
     numero: number = 0.0;

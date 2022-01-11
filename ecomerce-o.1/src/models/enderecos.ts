@@ -1,4 +1,5 @@
 export class Enderecos {
+    id: string = '';
     cidade: string = '';
     rua: string = '';
     bairro: string = '';

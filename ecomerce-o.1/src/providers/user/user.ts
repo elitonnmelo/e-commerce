@@ -46,6 +46,10 @@ export class UserProvider {
   byIdFS(id: string){
     return this.afs.doc('/usuarios/' + id).valueChanges();
   }
+  byIdFSC(id: string){
+    return this.afs.doc('/usuarios' + id).valueChanges();
+  }
+  
 
   salvarLocal(id) {
     return this.storage.set('usuario', id);
@@ -73,5 +77,6 @@ export class UserProvider {
     //const id = this.afs.createId();
     this.afs.doc(this.ENTIDADE + '/' + usuario.id).set(obj);
   }
-
+  
+ 
 }

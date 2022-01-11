@@ -53,42 +53,19 @@ export class AddEnderecoPage {
       }
   }
 
-  
+  ionViewDidLoad() {
+    /*console.log('ionViewDidLoad Page');
 
-  /*ionViewDidLoad() {
-    console.log('ionViewDidLoad AddEnderecoPage');
-    this.storage.get('id').then((resolve) => {
-      this.id = resolve;
-
-      if(this.id) {
-          
-        this.item = this.item;
-        this.itemID = this.id;
-        this.titulo = 'Atualizar';
-
-      } else {
-        this.itemID = undefined;
+    this.userProvider.lerLocal().then(_userId => {
+      this.userProvider.byIdFS(_userId).subscribe(_user => {
         this.item = new Enderecos();
-        this.titulo = 'Inserir';
-      }
-    })
-  }
-  salvar2(local: string){
-    this.item.lat = parseFloat(this.item.lat + '');
-    this.item.lng = parseFloat(this.item.lng + '');
-    this.afs.firestore.doc('/enderecos').collection(this.id).
-    if(this.id) { //atualizar
-      this.enderecoProvider.atualizarFS(this.id, this.item).then(_ => {
-        this.presentTost('Endereço atualizado com sucesso');
-        this.viewCtrl.dismiss();
+        this.item.id = _userId;
+        console.log(this.item.id);
+
       })
-    } else { //inserir
-      this.enderecoProvider.inserirFS(this.item).then(_ =>{
-        this.presentTost('Endereço adicionado com sucesso');
-        this.viewCtrl.dismiss();
-      });
-    }
-  }*/
+    }) */
+
+  }
 
 
   fechar() {
