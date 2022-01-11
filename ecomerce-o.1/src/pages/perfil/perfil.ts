@@ -25,6 +25,7 @@ export class PerfilPage {
     'Favoritos',
     'Meus pedidos',
     'Meus serviços',
+    'Minhas demandas',
     'Dados da conta',
     'Endereços para entrega',
     'Formas de pagamento'
@@ -55,6 +56,11 @@ export class PerfilPage {
     if (item == "Endereços para entrega"){
       //this.navCtrl.push('EndereçosPage')
       const modal = this.modalCtrl.create('EndereçosPage');
+      modal.present();
+    }
+    if (item == "Minhas demandas"){
+      //this.navCtrl.push('EndereçosPage')
+      const modal = this.modalCtrl.create('MinhasDemandasPage');
       modal.present();
     }
     
