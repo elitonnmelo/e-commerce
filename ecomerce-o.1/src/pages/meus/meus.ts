@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
 /**
@@ -16,7 +16,7 @@ import { HomePage } from '../home/home';
 })
 export class MeusPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -24,6 +24,18 @@ export class MeusPage {
   }
   voltar(){
     this.navCtrl.setRoot(HomePage)
+  }
+
+  abrirDetalhes(){
+    this.navCtrl.push('DetalhesProdutoPage');
+  }
+
+  Toast() {
+    const toast = this.toastCtrl.create({
+      message: 'Pedido adicionado ao carrinho',
+      duration: 3000
+    });
+    toast.present();
   }
 
 }

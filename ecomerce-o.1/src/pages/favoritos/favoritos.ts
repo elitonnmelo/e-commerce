@@ -27,4 +27,8 @@ export class FavoritosPage {
     this.navCtrl.setRoot(HomePage)
   }
 
+  abrirDetalhes(){
+    this.navCtrl.push('DetalhesProdutoPage');
+  }
+
 }

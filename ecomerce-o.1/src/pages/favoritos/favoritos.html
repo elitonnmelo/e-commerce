@@ -1,47 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-
-    <button ion-button clear menuToggle>
+  <ion-navbar color='green'>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-
-    <ion-buttons end>
-      <button ion-button clear class="notification" >
-        <ion-icon name="notifications-outline" color="dark"></ion-icon>
-      </button>
-    </ion-buttons>
-
-  </ion-toolbar>
+    <ion-title>Favoritos</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<h1 class="title">Favoritos</h1>
 
-<ion-row class="favorite-items">
+  <div class="card-items">
 
-  <ion-col col-6 class="ion-text-left padding-left0" >
-    <img src="../../assets/imgs/background-mel.jpg">
-    <p>R$ 34,00</p>
-    <h6>Mel de abelha</h6>
-  </ion-col>
+    <ion-card >
+      <ion-buttons end>
+        <button ion-button icon-only class="excluir" clear>
+          <ion-icon color='yellow' name="md-star"></ion-icon>
+        </button>
+      </ion-buttons>
 
-  <ion-col col-6 class="ion-text-left padding-right0">
-    <img src="../../assets/imgs/background-leite.jpg">
-    <p>R$ 4,00</p>
-    <h6>Leite Bovino</h6>
-  </ion-col>
+      <ion-card-content>
 
-  <ion-col col-6 class="ion-text-left padding-left0">
-    <img src="../../assets/imgs/carne_boi.png">
-    <p>R$ 34,00</p>
-    <h6>Carne Bovina</h6>
-  </ion-col>
 
-  <ion-col col-6 class="ion-text-left padding-right0" >
-    <img src="../../assets/imgs/frango.jpg">
-    <p>R$ 20,00</p>
-    <h6>Frango inteiro</h6>
-  </ion-col>
+        <div class="item-img" (click)='abrirDetalhes()'>
+          <img src="../../assets/imgs/background-leite.jpg">
+        </div>
 
-</ion-row>
+        <div class="item-info">
+          <div (click)='abrirDetalhes()'>
+            <p class="nomeP">Leite</p>
+            <p>Fazenda do João</p>
+            <p> R$ 4,00/L </p>
+          </div>
+
+        </div>
+      </ion-card-content>
+
+    </ion-card>
+
+    </div>
+
 </ion-content>
