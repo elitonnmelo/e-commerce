@@ -1,0 +1,43 @@
+<ion-content padding>
+
+  <ion-buttons end >
+    <button ion-button  clear (click)='fechar()'>
+      <ion-icon color=dark name='md-close'></ion-icon>
+    </button>
+  </ion-buttons>
+<h2>Detalhes do Produto</h2>
+
+
+  <ion-card>
+    <ion-buttons end >
+      <button ion-button  clear>
+        <ion-icon color=dark name='md-star-outline'></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <img src="../../assets/imgs/background-leite.jpg">
+  <div class="vendedor">
+      <p>Vendendor:</p>
+      <p>Antonio Pereira</p>
+  </div>
+
+  <div class="detalhes">
+    <p>Detalhes:</p>
+    <p>Mel de abelha natural</p>
+  </div>
+
+  <div>
+    <p>R$ 4,00/L</p>
+  </div>
+
+  <div class='quantidade'>
+    <button ion-button color='green'> - </button>
+    <ion-input type='number' min='0' max='100' step='1' value="1"></ion-input>
+    <button ion-button color='green'> + </button>
+  </div>
+
+  <button ion-button full class="bttn-border" round color='green' (click)='Toast()'>Adicionar ao carrinho</button>
+
+  </ion-card>
+
+</ion-content>

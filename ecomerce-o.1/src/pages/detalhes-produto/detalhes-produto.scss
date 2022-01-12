@@ -1,0 +1,30 @@
+page-detalhes-produto {
+
+  div{
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+  .vendedor{
+    padding-top: 10px;
+  }
+
+  img{
+    padding: 10px;
+  }
+
+  .quantidade{
+    display: flex;
+    width: 140px;
+
+  }
+  input[type='number']{
+    -moz-appearance: textfield;
+    text-align: center;
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+  }
+
+}

@@ -1,58 +1,42 @@
 page-favoritos {
 
-    .backbtn {
-        margin-left: 5px;
-    }
-    
-    .notification {
-      margin-right: 15px;
-    }
-    
-    ion-content {
-        padding-top: 16px;
-        padding-bottom: 16px;
-        padding-left: 26px;
-        padding-right: 26px;
-    }
-    
-    .title {
-      margin-top: 0;
-      color: #434343;
-    }
-    
-    .favorite-items {
-      margin-top: 20px;
-    
-      ion-col {
-        
-          padding: 10px;
-    
-          img {
-              width: 100%;
-              height: 180px;
-              object-fit: cover;
-              border-radius: 8px;
-          }
-    
-          p {
-              margin-top: 5px;
-              margin-bottom: 0;
-          }
-    
-          h6 {
-              margin-top: 5px;
-              margin-bottom: 0;
-          }
+  .card-items{
+    ion-card{
+      margin-left: 0;
+      margin-right: 0;
+      border-radius: 0;
+
+      .nomeP{
+        color: black;
       }
+      p{
+        color: #565656;
+      }
+      ion-card-content{
+        display: flex;
+        position: relative;
+
+          .item-img{
+            display: flex;
+            align-items: center;
+            margin-right: 16px;
+
+            img{
+              object-fit: cover;
+              width: 110px;
+              height: 110px;
+              box-shadow: 0px 2px 2px 0px rgba( 0, 0, 0, 0.16);
+            }
+          }
+
+      }
+
+      .excluir{
+        width: 40px;
+        height: 26px;
+      }
+
+  }
+}
+
     }
-    
-    .padding-left0 {
-      padding-left: 0 !important;
-    }
-    
-    .padding-right0 {
-      padding-right: 0 !important;
-    }
-    
-    }
-    
