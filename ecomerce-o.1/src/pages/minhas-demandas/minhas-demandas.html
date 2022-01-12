@@ -16,6 +16,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="conteudo-demandas" padding>
+
+  <ion-list>
+    <ion-item *ngFor="let item of itemArr" (click)="editItem(item)">
+      <ion-avatar item-start>
+        <img width="90px" height="90px" src="../../assets/imgs/icon-papel.png">
+      </ion-avatar>
+      <h2>Pedido número {{item.value.numero}}</h2>
+      
+      <button (click)="verDetalhes()" class="btn-detalhes">Ver detalhes</button>
+    </ion-item>  
+  </ion-list>
+  <button clear block class="btn-add" (click)="addItem()" color="dark" ion-button icon-start>
+    <ion-icon name="add"></ion-icon>
+    Adicionar demanda
+  </button>
 
 </ion-content>

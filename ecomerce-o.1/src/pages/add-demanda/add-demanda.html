@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar class="conteudo-addDemanda">
+    <ion-title color="dark" class="toolbar-title">{{titulo}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark"  (click)="fechar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="conteudo-addDemanda" padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Pedido</ion-label>
+      <ion-input type="text" [(ngModel)]="item.pedido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Numero</ion-label>
+      <ion-input type="text" [(ngModel)]="item.numero"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+
+  <button ion-button  (click)="salvar()" class="btn-salvar" >Salvar</button>
+  <button ion-button  color="danger" (click)="excluir()" *ngIf="itemID !== undefined" class="btn-excluir">Excluir</button>
+
+</ion-content>

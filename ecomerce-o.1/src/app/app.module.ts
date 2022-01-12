@@ -24,18 +24,19 @@ import { ListPage } from '../pages/list/list';
 import { EnderecosProvider } from '../providers/enderecos/enderecos';
 import { CartaoProvider } from '../providers/cartao/cartao';
 import { CartProvider } from '../providers/cart/cart';
+import { DemandasProvider } from '../providers/demandas/demandas';
 
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDmir3XOsL2YdFjsK80BXIM_1Aok3zRdqo",
-  authDomain: "e-commerce-398eb.firebaseapp.com",
-  projectId: "e-commerce-398eb",
-  storageBucket: "e-commerce-398eb.appspot.com",
-  messagingSenderId: "588203640801",
-  appId: "1:588203640801:web:da0d7b891da56632f3b4a0",
-  measurementId: "G-W1Q7MF6KN2",
-  databaseURL: "https://e-commerce-398eb-default-rtdb.firebaseio.com/"
+  apiKey: "AIzaSyBs8uKKVyRaftm7_BXREMG-wOgqm2j3rmY",
+  authDomain: "cidts-ecommerce.firebaseapp.com",
+  databaseURL: "https://cidts-ecommerce-default-rtdb.firebaseio.com",
+  projectId: "cidts-ecommerce",
+  storageBucket: "cidts-ecommerce.appspot.com",
+  messagingSenderId: "338849693638",
+  appId: "1:338849693638:web:107d032daa58a260117cc7",
+  measurementId: "G-7VW0F6PMGM"
 };
 
 
@@ -72,7 +73,8 @@ const firebaseConfig = {
     UserProvider,
     EnderecosProvider,
     CartaoProvider,
-    CartProvider
+    CartProvider,
+    DemandasProvider
   ]
 })
 export class AppModule {}
