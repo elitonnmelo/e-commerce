@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar color="green">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Finalizar compra
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h2>Endereço para entrega</h2>
+
+  <div class="card-items">
+
+    <ion-card>
+
+       <ion-card-content>
+         <div class="item-img">
+           <img src="../../assets/imgs/icon-casa.png">
+         </div>
+
+         <div class="item-info">
+           <p>Rua Maria nº 97</p>
+           <p>Boa Viagem, CE</p>
+           <p> 63870000</p>
+         </div>
+       </ion-card-content>
+       <ion-buttons end>
+        <button ion-button color="green" clear small>
+          Alterar endereço
+        </button>
+        </ion-buttons>
+     </ion-card>
+     </div>
+
+     <h2>Metodo de Pagamento</h2>
+
+     <div class="card-items">
+
+      <ion-card>
+
+         <ion-card-content>
+           <div class="item-img">
+             <img src="../../assets/imgs/icon-cartao.png">
+           </div>
+
+           <div class="item-info">
+             <p>Lucas R F Melo</p>
+             <p>Cartão de numeros finais: 1234</p>
+             <ion-input color='dark' class="input" type="number" placeholder="parcelas: "></ion-input>
+           </div>
+         </ion-card-content>
+         <ion-buttons end>
+          <button ion-button color="green" clear small>
+            Alterar forma de pagamento
+          </button>
+          </ion-buttons>
+       </ion-card>
+       </div>
+
+
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-toolbar >
+
+    <div class="total">
+
+        <p>Sub-total: R$  4,00</p>
+      <p>Frete: R$  6,00</p>
+      <p>Total: R$  10,00</p>
+
+    </div>
+    <button ion-button full class="bttn-border" round color='green'>Finalizar compra</button>
+  </ion-toolbar>
+</ion-footer>

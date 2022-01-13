@@ -1,0 +1,59 @@
+page-finalizar-compra {
+
+  ion-content {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 26px;
+    padding-right: 26px;
+}
+
+.title {
+  margin-top: 0;
+  color: #434343;
+}
+
+.card-items{
+
+  ion-card{
+    background-color: #EFEFEF;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+
+    ion-card-content{
+      display: flex;
+      position: relative;
+
+        .item-img{
+          display: flex;
+          align-items: center;
+          margin-right: 14px;
+
+          img{
+            object-fit: cover;
+            width: 80px;
+            height: 70px;
+          }
+        }
+
+        .item-info{
+          p {
+            font-size: 16px;
+        }
+}
+  }
+}
+}
+
+.total{
+  margin-left: 10px;
+  margin-bottom: 5px;
+
+  .input{
+  }
+  p{
+    color: #565656;
+  }
+}
+
+}
