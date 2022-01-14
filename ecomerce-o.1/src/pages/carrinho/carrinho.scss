@@ -3,38 +3,38 @@ page-carrinho {
     .backbtn {
       margin-left: 5px;
     }
-    
+
     .notification {
       margin-right: 15px;
     }
-    
+
     ion-content {
         padding-top: 16px;
         padding-bottom: 16px;
         padding-left: 26px;
         padding-right: 26px;
     }
-    
+
     .title {
       margin-top: 0;
       color: #434343;
     }
-    
+
     .card-items{
       ion-card{
         margin-left: 0;
         margin-right: 0;
         border-radius: 0;
-    
+
         ion-card-content{
           display: flex;
           position: relative;
-    
+
             .item-img{
               display: flex;
               align-items: center;
               margin-right: 16px;
-    
+
               img{
                 object-fit: cover;
                 width: 110px;
@@ -42,12 +42,12 @@ page-carrinho {
                 box-shadow: 0px 10px 30px 0px rgba( 0, 0, 0, 0.16);
               }
             }
-    
+
             .item-info{
               p {
                 font-size: 16px;
             }
-    
+
             p:nth-child(1) {
                 color: #434343;
             }
@@ -58,7 +58,7 @@ page-carrinho {
                 color: #488aff;
             }
             }
-    
+
             .qty-selector{
               display: flex;
               justify-content: center;
@@ -66,14 +66,14 @@ page-carrinho {
               background: #f6f6f6;
               border-radius: 5px;
               margin-top: 10px;
-    
+
               button{
                 color: #565656;
                 font-size: 16px;
                 margin-left: 8px;
                 margin-right: 8px;
               }
-    
+
               label{
                 color: #565656 !important;
                 font-size: 16px;
@@ -82,15 +82,13 @@ page-carrinho {
         }
       }
     }
-    
-    ion-footer{
-      padding-left: 20px;
-      padding-right: 20px;
-    
-      .main-button::after{
-        box-shadow: none !important;
+
+    .total{
+      margin-left: 10px;
+      margin-bottom: 5px;
+      p{
+        color: #565656;
       }
     }
-    
+
     }
-    
