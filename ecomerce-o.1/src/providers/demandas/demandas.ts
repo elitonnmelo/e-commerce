@@ -45,7 +45,7 @@ export class DemandasProvider {
     .snapshotChanges()
     .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
   }
-  listarTodosFS(){
+  listarFSE(){
     this.userProvider.lerLocal().then(_userId => {
       this.userProvider.byIdFS(_userId).subscribe(_user => {
         this.item = new Demanda();   
@@ -54,7 +54,7 @@ export class DemandasProvider {
       })
     })
     let uid = this.item.id;
-    return this.afs.collection('/usuarios/'+ uid + this.ENTIDADE)
+    return this.afs.collection('/usuarios/'+ uid + this.ENTIDADE3)
     .snapshotChanges()
     .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
     

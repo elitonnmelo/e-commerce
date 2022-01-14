@@ -33,8 +33,7 @@ export class MinhasDemandasPage {
     console.log('ionViewDidLoad MinhasDemandasPage');
   }
   detalhesDemanda(){
-    const modal = this.modalCtrl.create('DetalheDemandasPage');
-    this.navCtrl.pop
+    const modal = this.modalCtrl.create('DetalheDemandasPage'); 
     modal.present();
   }
   fechar() {

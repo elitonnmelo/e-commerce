@@ -16,15 +16,20 @@ import { DemandasProvider } from '../../providers/demandas/demandas';
 })
 export class DetalheDemandasPage {
   itemArr = [];
+  itemArrEndereco = []
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl: ViewController,
     public demandasProvider: DemandasProvider
     
     ) {
-      this.demandasProvider.listarTodosFS().subscribe(_data => {
+      this.demandasProvider.listarFS().subscribe(_data => {
         console.log(_data);
         this.itemArr = _data;
+      })
+      this.demandasProvider.listarFSE().subscribe(_data => {
+        console.log(_data);
+        this.itemArrEndereco = _data;
       })
   }
 

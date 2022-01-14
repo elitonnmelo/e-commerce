@@ -53,6 +53,21 @@ export class PerfilPage {
       const modal = this.modalCtrl.create('FormasDePagamentoPage');
       modal.present();
     }
+    if (item == "Meu carrinho"){
+      //this.navCtrl.push('FormasDePagamentoPage')
+      const modal = this.modalCtrl.create('CarrinhoPage');
+      modal.present();
+    }
+    if (item == "Meus pedidos"){
+      //this.navCtrl.push('FormasDePagamentoPage')
+      const modal = this.modalCtrl.create('MeusPage');
+      modal.present();
+    }
+    if (item == "Favoritos"){
+      //this.navCtrl.push('FormasDePagamentoPage')
+      const modal = this.modalCtrl.create('FavoritosPage');
+      modal.present();
+    }
     if (item == "Endereços para entrega"){
       //this.navCtrl.push('EndereçosPage')
       const modal = this.modalCtrl.create('EndereçosPage');

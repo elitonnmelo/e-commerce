@@ -15,8 +15,14 @@
     <ion-item *ngFor="let item of itemArr">
       <h2>Pedido número {{item.value.numero}}</h2>
       <h3>Produto: {{item.value.pedido}}</h3>
-      <h3>Cliente: {{item.value.cidade}}</h3>
     </ion-item>
+    <ion-item *ngFor="let item of itemArrEndereco">
+      <h2>Endereço</h2>
+      <h2>Rua: {{item.value.rua}}</h2>
+      <h3>Nº {{item.value.numero}}</h3>
+      <h3>Cidade: {{item.value.cidade}}</h3>
+    </ion-item>
+
     
   </ion-list>
   
