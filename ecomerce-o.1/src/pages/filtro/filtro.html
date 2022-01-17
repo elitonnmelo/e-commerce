@@ -1,15 +1,30 @@
-<!--
-  Generated template for the FiltroPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <ion-title>filtro</ion-title>
+  <ion-navbar color='green'>
+    <ion-title>Filtro</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+  <h2>Filtrar por preço</h2>
+  <ion-item>
+    <ion-label>Serviços de até R$ {{Value}},00  </ion-label>
+    <ion-range [(ngModel)]="Value" min='1,00' max='200,00' color='green'>
+    </ion-range>
+  </ion-item>
+
+  <h2>Filtrar por categoria</h2>
+
+  <ion-list no-lines>
+    <ion-item  *ngFor="let categoria of categorias">
+      <ion-label >{{categoria.nome}}</ion-label>
+      <ion-checkbox color="green" ></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+    <button ion-button item-end icon-start color='green' full round>
+      <ion-icon name="ios-search" color='ligth'></ion-icon>
+      Buscar
+    </button>
 
 </ion-content>

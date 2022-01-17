@@ -23,11 +23,15 @@ export class HomePage {
 }
 
   abrirCarrinho(){
-    this.navCtrl.push('CarrinhoPage');
+    this.navCtrl.setRoot('CarrinhoPage');
   }
 
   abrirDetalhes(){
     this.navCtrl.push('DetalhesProdutoPage');
+  }
+
+  abrirFiltro(){
+    this.navCtrl.push('FiltroPage');
   }
 
   categorias = [
