@@ -15,11 +15,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FinalizarCompraPage {
 
+  parcelas='';
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FinalizarCompraPage');
+  }
+
+  abrirAltEndereco(){
+    this.navCtrl.push('EndereçosPage');
+  }
+
+  abrirAltPagamento(){
+    this.navCtrl.push('FormasDePagamentoPage');
   }
 
 }
