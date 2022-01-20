@@ -15,15 +15,22 @@
     <ion-item *ngFor="let item of itemArr">
       <h2>Pedido número {{item.value.numero}}</h2>
       <h3>Produto: {{item.value.pedido}}</h3>
+      <h3>Quantidade: 1</h3>
+      <h3>Entrega: 5 dias</h3>
     </ion-item>
+    <ion-item>
+      <ion-label fixed>Cliente: </ion-label>
+      <ion-input type="text" [(ngModel)]="item.nome" ></ion-input>
+    </ion-item>
+    
     <ion-item *ngFor="let item of itemArrEndereco">
       <h2>Endereço</h2>
       <h2>Rua: {{item.value.rua}}</h2>
       <h3>Nº {{item.value.numero}}</h3>
       <h3>Cidade: {{item.value.cidade}}</h3>
+      <h2>Valor: R$ 10,00</h2>
     </ion-item>
 
-    
   </ion-list>
   
 </ion-content>
