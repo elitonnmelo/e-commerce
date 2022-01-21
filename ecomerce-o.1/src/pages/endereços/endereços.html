@@ -14,7 +14,8 @@
 <ion-content class="conteudo-endereco">
   
   <ion-list>
-    <ion-item *ngFor="let item of itemArr" (click)="editItem(item)">
+    <ion-item *ngFor="let item of itemArr" (click)="selecionarEndereco(item)">
+      <button (click)="editItem(item)" class="btn-detalhes">Atualizar</button>
       <ion-avatar item-start>
         <img width="77px" height="74px" src="../../assets/imgs/icon-casa.png">
       </ion-avatar>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { CartaoProvider } from '../../providers/cartao/cartao';
 
 
@@ -16,6 +16,7 @@ export class FormasDePagamentoPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public viewCtrl: ViewController,
+    public toastCtrl: ToastController,
     public cartaoProvider: CartaoProvider
     
     ) {
@@ -31,6 +32,27 @@ export class FormasDePagamentoPage {
   }
   usarBoleto(){
     console.log("O metodo de pagamento utilizado foi boleto")
+  }
+  selecionarCartao( _item){
+    const itemID = _item.key;
+    const item = _item.value;
+    //console.log(itemID, item);
+    var valor = item;
+    var valorID = itemID;
+    console.log(valor, valorID);
+    this.viewCtrl.dismiss();
+    this.presentTost('Cartão selecionado!');
+    
+  }
+  presentTost(mensagem) {
+    const toast = this.toastCtrl.create({
+      message: mensagem,
+      duration: 3000,
+      position: 'position',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
   }
 
   editItem(_item) {

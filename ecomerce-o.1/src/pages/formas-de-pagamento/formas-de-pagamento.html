@@ -11,7 +11,8 @@
 
 <ion-content class="conteudo-pagamento" padding>
   <ion-list>
-    <ion-item *ngFor="let item of itemArr" (click)="editItem(item)">
+    <ion-item *ngFor="let item of itemArr" (click)="selecionarCartao(item)">
+      <button (click)="editItem(item)" class="btn-detalhes">Atualizar</button>
       <ion-avatar item-start>
         <img width="77px" height="74px" src="../../assets/imgs/icon-cartao.png">
       </ion-avatar>

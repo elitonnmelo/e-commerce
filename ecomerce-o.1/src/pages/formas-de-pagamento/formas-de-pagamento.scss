@@ -19,6 +19,27 @@ page-formas-de-pagamento {
             align-items: center;
             text-align: center;
         }
+        .btn-detalhes{
+            position: absolute;
+            width: 76px;
+            height: 25px;
+    
+            background: #015241;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            margin-top: 2.4em;
+            margin-left: 196px;
+            //conteudo texto
+            font-family: 'Cabin', sans-serif; 
+            font-style: normal;
+            font-weight: normal;
+            font-size: 17px;
+            line-height: 36px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
         .btn-add{
             ion-icon{
                 font-size: 10rem;
