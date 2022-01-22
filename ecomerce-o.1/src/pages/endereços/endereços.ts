@@ -16,8 +16,9 @@ import { EnderecosProvider } from '../../providers/enderecos/enderecos';
   templateUrl: 'endereços.html',
 })
 export class EndereçosPage {
-  item = new EnderecoECartao();
+  enderecoCartao = new EnderecoECartao();
   itemArr = [];
+  valor = '';
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -49,17 +50,17 @@ export class EndereçosPage {
     const itemID = _item.key;
     const item = _item.value;
     //console.log(itemID, item);
-    var valor = item;
+    this.valor = item;
     var valorID = itemID;
-    console.log(valor, valorID);
+    console.log(this.valor, valorID);
     
-    /*this.item = new EnderecoECartao();  
-    this.item.rua = item.value.rua;
-    this.item.cidade = item.value.cidade;
-    this.item.complemento = item.value.complemento;
-    this.item.numero = item.value.numero;
-    this.item.bairro = item.value.bairro;
-    console.log(EnderecoECartao);*/
+    this.enderecoCartao = new EnderecoECartao() 
+    this.enderecoCartao.rua = _item.value.rua;
+    this.enderecoCartao.cidade = _item.cidade;
+    this.enderecoCartao.complemento = item.complemento;
+    this.enderecoCartao.numero = valorID.numero;
+    this.enderecoCartao.bairro = item.bairro;
+    console.log(EnderecoECartao)
     
 
     this.viewCtrl.dismiss();
@@ -76,6 +77,9 @@ export class EndereçosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EndereçosPage');
+    console.log(this.valor);
+    
+    
   }
   /*addEndereco(){
     const modal = this.modalCtrl.create('AddEnderecoPage');

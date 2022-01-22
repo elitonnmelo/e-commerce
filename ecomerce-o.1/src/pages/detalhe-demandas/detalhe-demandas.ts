@@ -31,6 +31,7 @@ export class DetalheDemandasPage {
         console.log(_data);
         this.itemArr = _data;
       })
+      
       this.demandasProvider.listarFSE().subscribe(_data => {
         console.log(_data);
         this.itemArrEndereco = _data;
