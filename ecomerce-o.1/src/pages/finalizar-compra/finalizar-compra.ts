@@ -31,5 +31,8 @@ export class FinalizarCompraPage {
   abrirAltPagamento(){
     this.navCtrl.push('FormasDePagamentoPage');
   }
+  abrirPagamentoRealizado(){
+    this.navCtrl.push('PagamentoRealizadoPage');
+  }
 
 }
