@@ -89,18 +89,17 @@ export class PerfilPage {
 
     this.userProvider.lerLocal().then(_userId => {
       this.userProvider.byIdFS(_userId).subscribe(_user => {
-        this.item = new User();
-        this.item.id = _userId;
-        this.item.nome = _user['nome'];
-        this.item.email = _user['email'];
+        this.item = new User(_user);
         console.log(this.item.id);
 
-
-        const path = '/user/' + this.item.id + '/foto.jpg';
-        this.firebaseStorageProvider.downloadImageStorage(path).then(_data => {
-          this.foto = _data;
-
-        });
+        if(this.item.id !== '') {
+          const path = '/user/' + this.item.id + '/foto.jpg';
+          this.firebaseStorageProvider.downloadImageStorage(path).then(_data => {
+            this.foto = _data;
+          }).catch(error => {
+            console.log(error)
+          });
+        }
 
       })
     }) 

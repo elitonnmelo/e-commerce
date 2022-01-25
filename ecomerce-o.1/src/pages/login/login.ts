@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, LoadingController, MenuController, NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
 import {Storage} from "@ionic/storage";
-import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -12,10 +11,13 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+
   email= '';
   senha = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
+    private menu : MenuController,
+    public loadingCtrl: LoadingController,
     public userProvider: UserProvider,
     public alertCtrl: AlertController,
     public storage: Storage
@@ -24,8 +26,21 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    // console.log('ionViewDidLoad LoginPage');
   }
+
+  ionViewCanEnter() {
+    this.userProvider.lerLocal().then(userID => {
+      if (userID) {
+        this.navCtrl.setRoot('HomePage')
+      }
+    });
+  }
+
+  ionViewDidEnter() {
+    this.setVisibleMenu(false);
+  }
+
   cadastro() {
     this.navCtrl.push('CadastroPage');
   }
@@ -33,21 +48,31 @@ export class LoginPage {
   esqueciSenha() {
     this.navCtrl.push('RecuperarSenhaPage');
   }
+
   entrar(){
-    //this.navCtrl.push('HomePage');
-    this.email;
-    this.senha;
+    const loader = this.loadingCtrl.create({
+      content: "Aguarde...",
+    });
+    loader.present();
+
+    
     this.userProvider.login(this.email, this.senha)
       .then(user => {
+        loader.dismiss();
         console.log('sucesso');
+
         this.userProvider.salvarLocal(user.uid).then( _data => {
-          this.navCtrl.setRoot(HomePage);
+          this.setVisibleMenu(true);
+          this.navCtrl.setRoot('HomePage');
         })
         
       }).catch(error => {
+        loader.dismiss();
+        console.log('error', error);
         this.showAlertErro();
       })
   }
+
   showAlertErro() {
     const alert = this.alertCtrl.create({
       title: 'Erro',
@@ -57,6 +82,10 @@ export class LoginPage {
     alert.present();
   }
 
+  setVisibleMenu(status=false){
+    this.menu.enable(status);
+    this.menu.swipeEnable(status);
+  }
 
 }
  

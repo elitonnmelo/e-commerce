@@ -1,37 +1,31 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar transparent>
-    <ion-title>Recuperar senha</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="conteudo-recuperar">
+<ion-content padding>
+  
   <ion-grid class="grid-logo">
-    <ion-row aling-items-center justify-content-center>
+    <ion-row align-items-center justify-content-center>
       <ion-col col-12 align-self-center>
-        <img src="../../assets/imgs/logo-cids.png">
+        <img src="assets/imgs/logo-cids.png" />        
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-grid >
+  <ion-grid class="grid-list">
     <ion-row align-items-center justify-content-center>
       <ion-col align-self-center col-12 col-lg-4 col-xl-4>
-        <h1>Recuperar senha</h1>
-        <h3>Escreva um e-mail para enviarmos 
-          as instruções de como criar 
-          sua nova senha</h3>
-
+        <h1 class="main-title-rec">Recuperar senha</h1>
+        <h2 class="text-rec">Escreva um e-mail para enviarmos as instruções de como criar sua nova senha.</h2>
         <ion-list>
-
-          <ion-item class="margin-input-top">
-            <ion-label floating>E-mail</ion-label>
-            <ion-input type="text" [(ngModel)]="email"></ion-input>
+          <ion-item>
+            <ion-label class="input-title" stacked>E-mail</ion-label>
+            <ion-input class="input-form" type="text" [(ngModel)]="email"></ion-input>
           </ion-item>
-
-          <button ion-button block  (click)="recuperar()" class="margin-btn-top btn">Enviar</button>
-
+          <button class="action-button" ion-button block (click)="recuperar()">Enviar</button>
         </ion-list>
-
       </ion-col>
     </ion-row>
   </ion-grid>

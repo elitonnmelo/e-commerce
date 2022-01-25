@@ -1,8 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 import {Slides} from 'ionic-angular';
 
+
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -20,7 +22,7 @@ export class HomePage {
     this.slides.zoom = false;
     this.slides.spaceBetween = 0 ;
 
-}
+  }
 
   abrirCarrinho(){
     this.navCtrl.setRoot('CarrinhoPage');

@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { EnderecoECartao } from '../../models/enderecoecartao';
+import { Enderecos } from '../../models/enderecos';
+import { User } from '../../models/user';
 import { EnderecosProvider } from '../../providers/enderecos/enderecos';
-
-/**
- * Generated class for the EndereçosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { UserProvider } from '../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -25,13 +21,23 @@ export class EndereçosPage {
     public modalCtrl: ModalController,
     public viewCtrl: ViewController,
     public toastCtrl: ToastController,
-    public enderecoProvider: EnderecosProvider
+    public enderecoProvider: EnderecosProvider,
+    public userProvider: UserProvider,
     
     ) {
-      this.enderecoProvider.listarFS().subscribe(_data => {
-        console.log(_data);
-        this.itemArr = _data;
+
+      this.userProvider.lerLocal().then(_userId => {
+        this.userProvider.byIdFS(_userId).take(1).subscribe(_data => {
+          const _user = new User(_data);
+          console.log('user', _user);
+
+          this.enderecoProvider.listarFS(_user.id).subscribe(_data => {
+            console.log(_data);
+            this.itemArr = _data;
+          })
+        })
       })
+
   }
 
   addItem() {

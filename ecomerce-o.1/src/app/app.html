@@ -1,67 +1,64 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
-<ion-menu class="ion-menu" [content]="content" type="overlay">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+<ion-split-pane>
+  <ion-menu class="menu-content" [content]="content">
 
-  <ion-header>
-    <ion-navbar color = "corcidts" class="title-menu" >
-      <ion-title  >Menu</ion-title>
-    </ion-navbar>
-  </ion-header>
+    <ion-header>
+      <ion-navbar color="corcidts" class="title-menu" >
+        <ion-title  >Menu</ion-title>
+      </ion-navbar>
+    </ion-header>
 
-  <ion-content>
+    <ion-content>
 
-    <ion-item class="tamanho-img">
-      <ion-avatar  item-start>
-        <img width="90px" height="90px"  [src]="foto">
-      </ion-avatar>
-      
-      <ion-item >
-        <ion-input class="conteudo-input-nome" disabled="true" type="text" [(ngModel)]="item.nome" ></ion-input>
+      <ion-item class="tamanho-img">
+        <ion-avatar  item-start>
+          <img width="60px" height="60px" [src]="foto">
+        </ion-avatar>
+        
+        <ion-item no-lines>
+          <ion-input class="conteudo-input-nome" disabled="true" type="text" [(ngModel)]="item.nome" ></ion-input>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-input class="conteudo-input-email" disabled="true" type="text" [(ngModel)]="item.email"  ></ion-input>
+        </ion-item>
       </ion-item>
-      <ion-item >
-        <ion-input class="conteudo-input-email" disabled="true" type="text" [(ngModel)]="item.email"  ></ion-input>
-      </ion-item>
-    </ion-item>
-    <div class="main-list">
 
-      <ion-list class="ion-list">
-        <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[0])" menuClose >
-          <ion-label> Home </ion-label>
-        </ion-item>
+      <div class="main-list">
 
-        <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[1])" menuClose>
-          <ion-label> Carrinho </ion-label>
-        </ion-item>
+        <ion-list class="ion-list">
+          <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[0])" menuClose >
+            <ion-label> Home </ion-label>
+          </ion-item>
 
-        <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[2])" menuClose>
-          <ion-label> Meus Pedidos </ion-label>
-        </ion-item>
+          <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[1])" menuClose>
+            <ion-label> Carrinho </ion-label>
+          </ion-item>
 
-        <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[3])" menuClose>
-          <ion-label> Favoritos </ion-label>
-        </ion-item>
+          <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[2])" menuClose>
+            <ion-label> Meus Pedidos </ion-label>
+          </ion-item>
 
-        <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[4])" menuClose>
-          <ion-label> Cadastrar Produto </ion-label>
-        </ion-item>
-        <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[5])" menuClose>
-          <ion-label> Perfil </ion-label>
-        </ion-item>
+          <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[3])" menuClose>
+            <ion-label> Favoritos </ion-label>
+          </ion-item>
 
-      </ion-list>
+          <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[4])" menuClose>
+            <ion-label> Cadastrar Produto </ion-label>
+          </ion-item>
+          <ion-item lines='none' detail='false' class="ion-text-center" (click)="openPage(pages[5])" menuClose>
+            <ion-label> Perfil </ion-label>
+          </ion-item>
 
-      <button ion-button clear color='dark' (click)='close()' class="button" >
-        <ion-icon name='ios-close-circle-outline'></ion-icon>
-      </button>
+        </ion-list>
 
-    </div>
-  </ion-content>
+        <button ion-button block icon-end clear color='dark' (click)='close()' class="button-fechar" >
+          <ion-icon name='ios-close-circle-outline'></ion-icon>
+        </button>
 
-</ion-menu>
+      </div>
+    </ion-content>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" main #content swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>

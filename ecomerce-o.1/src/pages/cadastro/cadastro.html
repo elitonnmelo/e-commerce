@@ -1,50 +1,50 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar transparent>
-    <ion-title>Cadastro</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="conteudo-cadastro">
+<ion-content padding>
+  
   <ion-grid class="grid-logo">
     <ion-row aling-items-center justify-content-center>
       <ion-col col-12 align-self-center>
-        <img src="../../assets/imgs/logo-cids.png">
+        <img src="assets/imgs/logo-cids.png">
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-grid>
+  <ion-grid class="grid-list">
     <ion-row align-items-center justify-content-center>
       <ion-col align-self-center col-12 col-lg-4 col-xl-4>
-        <h1>Cadastre-se</h1>
+          <h1 class="main-title">Cadastrar-se</h1>
+          <ion-list>
+            <ion-item>
+              <ion-label class="input-title" stacked>Nome</ion-label>
+              <ion-input class="input-form" type="text" [(ngModel)]="nome"></ion-input>
+            </ion-item>
 
-        <ion-list class="conteudo-input">
+            <ion-item>
+              <ion-label class="input-title" stacked>E-mail</ion-label>
+              <ion-input class="input-form" type="text" [(ngModel)]="email"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label class="input-title" stacked>Senha</ion-label>
+              <ion-input class="input-form" type="password" [(ngModel)]="senha"></ion-input>
+            </ion-item>
 
-          <ion-item class="margin-input-top1">
-            <ion-label floating>Nome</ion-label>
-            <ion-input type="text" [(ngModel)]="nome" ></ion-input>
-          </ion-item>
+        <!--    <ion-item>
+              <ion-label class="input-title" stacked>Confirmar senha</ion-label>
+              <ion-input class="input-form" type="password" [(ngModel)]="confirmar-senha"></ion-input>
+            </ion-item> -->
 
-          <ion-item class="margin-input-top">
-            <ion-label floating>E-mail</ion-label>
-            <ion-input type="text" [(ngModel)]="email" ></ion-input>
-          </ion-item>
-        
-          <ion-item class="margin-input-top">
-            <ion-label floating>Senha</ion-label>
-            <ion-input type="password" [(ngModel)]="senha"></ion-input>
-          </ion-item>
-          <ion-item class="margin-input-top">
-            <ion-label floating>Confirmar senha</ion-label>
-            <ion-input type="password" [(ngModel)]="confirmarSenha"></ion-input>
-          </ion-item>
-
-          <button ion-button block  (click)="cadastrarFS()" class="margin-btn-top btn">Finalizar</button>
-        
+            <button ion-button class="action-button" block (click)="cadastrar()">Cadastrar</button>
         </ion-list>
-
       </ion-col>
+
     </ion-row>
+
   </ion-grid>
 
 </ion-content>

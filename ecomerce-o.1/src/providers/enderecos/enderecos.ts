@@ -42,18 +42,10 @@ export class EnderecosProvider {
 
   }
   
-  listarFS() {
-    this.userProvider.lerLocal().then(_userId => {
-      this.userProvider.byIdFS(_userId).subscribe(_user => {
-        this.item = new Enderecos();   
-        this.item.id = _userId;
-        console.log(this.item.id);
-      })
-    })
-    let uid = this.item.id;
-    return this.afs.collection('/usuarios/'+ uid + this.ENTIDADE)
-    .snapshotChanges()
-    .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
+  listarFS(userID) {
+    return this.afs.collection('/usuarios/'+ userID + this.ENTIDADE)
+      .snapshotChanges()
+      .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
   }
 
   inserirFS(item) { 

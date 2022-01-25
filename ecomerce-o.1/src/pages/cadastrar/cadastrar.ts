@@ -2,7 +2,6 @@ import { Produto } from './../../models/produto';
 import { ProdutosProvider } from './../../providers/produtos/produtos';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage,  LoadingController, NavController, NavParams, ToastController} from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { FirebaseStorageProvider } from '../../providers/firebase-storage/firebase-storage';
 import { Storage } from '@ionic/storage';
 
@@ -84,7 +83,7 @@ export class CadastrarPage {
       }
           this.presentToast('Produto cadastrado com sucesso');
           console.log('teste03');
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot('HomePage');
         });
     }
   

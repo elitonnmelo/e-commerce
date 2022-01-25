@@ -1,40 +1,44 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar transparent>
-
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="conteudo-login">
+<ion-content padding>
+
   <ion-grid class="grid-logo">
     <ion-row aling-items-center justify-content-center>
       <ion-col col-12 align-self-center>
-        <img src="../../assets/imgs/logo-cids.png">
+        <img src="assets/imgs/logo-cids.png">
       </ion-col>
     </ion-row>
   </ion-grid>
   
 
-  <ion-grid >
+  <ion-grid class="grid-list">
     <ion-row align-items-center justify-content-center>
       <ion-col align-self-center col-12 col-lg-4 col-xl-4>
-        <p>.</p>
         
-        <h1>Login</h1>
+        <h1 class="main-title">Login</h1>
 
         <ion-list >
     
-          <ion-item class="margin-input-top1">
-            <ion-label floating>E-mail</ion-label>
-            <ion-input type="text" [(ngModel)]="email"></ion-input>
+          <ion-item>
+            <ion-label class="input-title" stacked>E-mail</ion-label>
+            <ion-input class="input-form" type="email" [(ngModel)]="email"></ion-input>
           </ion-item>
         
-          <ion-item class="margin-input-top2">
-            <ion-label floating>Senha</ion-label>
-            <ion-input type="password" [(ngModel)]="senha"></ion-input>
+          <ion-item>
+            <ion-label class="input-title" stacked>Senha</ion-label>
+            <ion-input class="input-form" type="password" [(ngModel)]="senha"></ion-input>
           </ion-item>
-          <button class="btn-senha" ion-button block  clear (click)="esqueciSenha()">Recuperar senha? Clique aqui</button>
+
+          <button class="password" ion-button block clear outline (click)="esqueciSenha()">Recuperar senha? Clique aqui</button>
       
-          <button ion-button block  (click)="entrar()" class="margin-btn-top btn" >Entrar</button>
+          <button ion-button block (click)="entrar()" class="action-button" >Entrar</button>
+
+          <h2 class="register-text">Ainda não possui uma conta?</h2>
+          <button class="register" ion-button block clear outline (click)="cadastro()">Cadastre-se aqui</button>
           
         </ion-list>
       </ion-col>
@@ -42,11 +46,4 @@
   </ion-grid>
 
 </ion-content>
-<ion-footer>
-  <ion-toolbar transparent>
-    <ion-title>
-      <h5>Ainda não possui conta? </h5>
-      <button class="btn-link-login " ion-button  clear (click)="cadastro()">Cadastre-se aqui</button>
-    </ion-title>
-  </ion-toolbar>
-</ion-footer>
+

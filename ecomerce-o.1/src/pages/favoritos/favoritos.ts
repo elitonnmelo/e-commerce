@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
 
 /**
  * Generated class for the FavoritosPage page.
@@ -24,7 +23,7 @@ export class FavoritosPage {
   }
 
   voltar(){
-    this.navCtrl.setRoot(HomePage)
+    this.navCtrl.setRoot('HomePage')
   }
 
   abrirDetalhes(){

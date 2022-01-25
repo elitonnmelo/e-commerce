@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 
 /**
  * Generated class for the MeusPage page.
@@ -23,7 +22,7 @@ export class MeusPage {
     console.log('ionViewDidLoad MeusPage');
   }
   voltar(){
-    this.navCtrl.setRoot(HomePage)
+    this.navCtrl.setRoot('HomePage')
   }
 
   abrirDetalhes(){

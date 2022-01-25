@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 
 /**
  * Generated class for the PagamentoRealizadoPage page.
@@ -23,7 +22,7 @@ export class PagamentoRealizadoPage {
   }
 
   voltar(){
-    this.navCtrl.setRoot(HomePage)
+    this.navCtrl.setRoot('HomePage')
   }
 
 }

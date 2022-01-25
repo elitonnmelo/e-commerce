@@ -29,53 +29,61 @@ export class UserProvider {
  
 
   cadastro(usuario){
-    this.afa.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha)
-      .then(_usuarioAuth => {
-        usuario.id = _usuarioAuth.uid;
-        delete usuario.senha; 
+    return new Promise<any>((resolve, reject) => {
+      this.afa.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha)
+        .then(_usuarioAuth => {
+          usuario.id = _usuarioAuth.uid;
+          delete usuario.senha; 
 
-        this.salvarUsuarioFS(usuario);
-      }).catch (error =>{
+          this.salvarUsuarioFS(usuario);
 
-      });
+          resolve(usuario);
 
+        }).catch(error => reject(error));
+    });
   }
+
   byId(id: string) {
     return this.afd.object('/usuarios/' + id).valueChanges();
   }
+
   byIdFS(id: string){
     return this.afs.doc('/usuarios/' + id).valueChanges();
   }
+
   byIdFSC(id: string){
     return this.afs.doc('/usuarios' + id).valueChanges();
   }
+
+  recuperarSenha(email){
+    return this.afa.auth.sendPasswordResetEmail(email);
+  }
+
+  salvarUsuario(usuario){
+    this.afd.object('/usuarios/' + usuario.id).update(usuario);
+  }
+
+  salvarUsuarioFS(usuario: Usuarios){
+    const obj = JSON.parse(JSON.stringify(usuario));
+    
+    //const id = this.afs.createId();
+    this.afs.doc(this.ENTIDADE + '/' + usuario.id).set(obj);
+  }
   
+
+  //////////////////////// 
+  // LOCAL
 
   salvarLocal(id) {
     return this.storage.set('usuario', id);
   }
+
   lerLocal() {
     return this.storage.get('usuario');
   }
 
   removeLocal() {
     return this.storage.remove('usuario');
-  }
-
-  recuperarSenha(email){
-    return this.afa.auth.sendPasswordResetEmail(email);
-
-  
-  }
-
-  salvarUsuario(usuario){
-    this.afd.object('/usuarios/' + usuario.id).update(usuario);
-  }
-  salvarUsuarioFS(usuario: Usuarios){
-    const obj = JSON.parse(JSON.stringify(usuario));
-    
-    //const id = this.afs.createId();
-    this.afs.doc(this.ENTIDADE + '/' + usuario.id).set(obj);
   }
   
  

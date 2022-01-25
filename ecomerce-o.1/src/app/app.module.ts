@@ -19,7 +19,6 @@ import { database } from 'firebase';
 import { IonicStorageModule } from '@ionic/storage';
 import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
 import { ProdutosProvider } from '../providers/produtos/produtos';
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { EnderecosProvider } from '../providers/enderecos/enderecos';
 import { CartaoProvider } from '../providers/cartao/cartao';
@@ -43,7 +42,6 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     ListPage
   ],
   imports: [
@@ -61,7 +59,6 @@ const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     ListPage
   ],
   providers: [

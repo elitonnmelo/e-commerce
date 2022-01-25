@@ -3,13 +3,15 @@ import { MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
 import {Storage} from "@ionic/storage";
 import { UserProvider } from '../providers/user/user';
 import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
 import { User } from '../models/user';
+
+import 'rxjs/add/operator/take';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +25,7 @@ export class MyApp {
   isUploaded = false;
 
 
-  rootPage: any = 'BemVindoPage';
+  rootPage: any = 'LoginPage';
 
   pages: Array<{title: string, component: any}>;
   
@@ -42,7 +44,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
+      { title: 'Home', component: 'HomePage' },
       //{ title: 'List', component: ListPage },
       { title: 'Carrinho', component: 'CarrinhoPage' },
       { title: 'Meus Pedidos', component: 'MeusPage' },
@@ -86,28 +88,24 @@ export class MyApp {
       this.userProvider.lerLocal().then(_usuario => {
         console.log("4");
 
-        this.userProvider.lerLocal().then(_userId => {
-          console.log("1");
-          this.userProvider.byIdFS(_userId).subscribe(_user => {
-            this.item = new User();
-            this.item.id = _userId;
-            this.item.nome = _user['nome'];
-            console.log("2");
-            this.item.email = _user['email'];
-
-
+        this.userProvider.byIdFS(_usuario).subscribe(_user => {
+          console.log("1", _user);
+          this.item = new User(_user);
+          console.log("2", this.item);
+          
+          if(this.item.id !== '') {
             const path = '/user/' + this.item.id + '/foto.jpg';
             this.firebaseStorageProvider.downloadImageStorage(path).then(_data => {
               this.foto = _data;
-
+            }).catch(error => {
+              console.log(error)
             });
-
-          })
-        })
+          }
+        });
 
         
         if(_usuario && _usuario.length > 0){
-          this.rootPage = HomePage;
+          this.rootPage = 'HomePage';
 
           console.log("0");
          /* this.userProvider.lerLocal().then(_userId => {
@@ -131,7 +129,7 @@ export class MyApp {
 
 
         } else{
-          this.rootPage = 'BemVindoPage';
+          this.rootPage = 'LoginPage';
         }
       })
     });

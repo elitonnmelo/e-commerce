@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
-import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, LoadingController, MenuController, NavController, NavParams } from 'ionic-angular';
 import { Usuarios } from '../../models/usuarios';
 import { UserProvider } from '../../providers/user/user';
-
-/**
- * Generated class for the CadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -20,9 +13,10 @@ export class CadastroPage {
   email = '';
   senha = '';
   confirmarSenha = '';
-  usuarios = new Usuarios;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
+    private menu : MenuController,
+    public loadingCtrl: LoadingController,
     public userProvider: UserProvider,
     public alertCtrl: AlertController
     
@@ -30,9 +24,26 @@ export class CadastroPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPage');
+    // console.log('ionViewDidLoad CadastroPage');
   }
+
+  ionViewCanEnter() {
+    this.userProvider.lerLocal().then(userID => {
+      if (userID) {
+        this.navCtrl.setRoot('HomePage')
+      }
+    });
+  }
+
+  ionViewDidEnter() {
+    this.setVisibleMenu(false);
+  }
+
   cadastrar(){
+    const loader = this.loadingCtrl.create({
+      content: "Aguarde...",
+    });
+    loader.present();
 
     let usuario = {
       nome: this.nome,
@@ -41,36 +52,36 @@ export class CadastroPage {
       //confirmarSenha: this.confirmarSenha
     }
 
-    this.userProvider.cadastro(usuario);
-    this.showAlert();
+    this.userProvider.cadastro(usuario).then(_data => {
+      loader.dismiss();
+      this.showAlert('Sucesso', 'Cadastro realizado com sucesso!');
+    }).catch(_error => {
+      loader.dismiss()
+      this.showAlert('Erro', 'Não foi possível realizar seu cadastro, entre em contato com o administrador do sistema.');
+    });
   }
-  cadastrarFS(){
-    let usuario = {
-      nome: this.nome,
-      email: this.email,
-      senha: this.senha,
-      //confirmarSenha: this.confirmarSenha
-    }
-    this.userProvider.cadastro(usuario);
-    //this.userProvider.salvarUsuarioFS(this.usuarios)
-    this.showAlert();
-    
-  }
-  showAlert() {
+
+  showAlert(titulo, descricao) {
     const alert = this.alertCtrl.create({
-      title: 'Sucesso!',
-      subTitle: 'Cadastro realizado com sucesso!',
+      title: titulo,
+      subTitle: descricao,
+      cssClass: 'alert',
       buttons: [
         {
-        text: 'OK',
+          text: 'OK',
+          cssClass: 'btn btn-ok',
           handler: data => {
             this.navCtrl.pop();
-            this.navCtrl.push('LoginPage');
-            
           }
-      }]
+        }
+      ]
     });
     alert.present();
+  }
+
+  setVisibleMenu(status=false){
+    this.menu.enable(status);
+    this.menu.swipeEnable(status);
   }
 
 }
