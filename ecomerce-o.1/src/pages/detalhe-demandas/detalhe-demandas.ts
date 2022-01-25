@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { User } from '../../models/user';
 import { DemandasProvider } from '../../providers/demandas/demandas';
 import { UserProvider } from '../../providers/user/user';
+import { EndereçosPage } from '../endereços/endereços';
 
 /**
  * Generated class for the DetalheDemandasPage page.
@@ -24,6 +25,7 @@ export class DetalheDemandasPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl: ViewController,
     public userProvider: UserProvider,
+    public enderecosPage: EndereçosPage,
     public demandasProvider: DemandasProvider
     
     ) {
@@ -49,6 +51,8 @@ export class DetalheDemandasPage {
 
       })
     }) 
+    console.log(this.enderecosPage.valor);
+    
   }
   fechar() {
     this.viewCtrl.dismiss();

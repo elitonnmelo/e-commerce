@@ -18,7 +18,7 @@ import { EnderecosProvider } from '../../providers/enderecos/enderecos';
 export class EndereçosPage {
   enderecoCartao = new EnderecoECartao();
   itemArr = [];
-  valor = '';
+  valor = [];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
