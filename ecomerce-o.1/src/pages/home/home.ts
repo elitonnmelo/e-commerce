@@ -16,7 +16,7 @@ export class HomePage {
   }
 
   ngAfterViewInit() {
-    this.slides.slidesPerView= 'auto';
+    this.slides.slidesPerView='auto';
     this.slides.zoom = false;
     this.slides.spaceBetween = 0 ;
 
