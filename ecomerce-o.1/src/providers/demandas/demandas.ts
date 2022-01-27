@@ -29,10 +29,27 @@ export class DemandasProvider {
     public afs: AngularFirestore
     
     ) {
-    console.log('Hello DemandasProvider Provider');
-  }
+      console.log('Hello EnderecosProvider Provider');
+      console.log('ionViewDidLoad Pageteste');
+    
+      this.userProvider.lerLocal().then(_userId => {
+        this.userProvider.byIdFS(_userId).subscribe(_user => {
+          this.item = new Demanda();
+          this.item.id = _userId;
+          //console.log(this.item.id);
   
-  listarFS() {
+        })
+      }) 
+    
+  
+    }
+    
+    listarFS(userID) {
+      return this.afs.collection('/usuarios/'+ userID + this.ENTIDADE)
+        .snapshotChanges()
+        .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
+    }
+  /*listarFS() {
     this.userProvider.lerLocal().then(_userId => {
       this.userProvider.byIdFS(_userId).subscribe(_user => {
         this.item = new Demanda();   
@@ -44,7 +61,7 @@ export class DemandasProvider {
     return this.afs.collection('/usuarios/'+ uid + this.ENTIDADE)
     .snapshotChanges()
     .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
-  }
+  }*/
   listarFSE(){
     this.userProvider.lerLocal().then(_userId => {
       this.userProvider.byIdFS(_userId).subscribe(_user => {

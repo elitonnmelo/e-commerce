@@ -33,10 +33,10 @@ export class SelecionarEnderecoPage {
     /*this.langForm = new FormGroup({
       "langs": new FormControl({value: 'enderecoSelecionado'})
     });*/
-    this.enderecoProvider.listarFS().subscribe(_data => {
+    /*this.enderecoProvider.listarFS(_user.id).subscribe(_data => {
       console.log(_data);
       this.itemArr = _data;
-    })
+    })*/
   }
   /*doSubmit(event) {
     console.log('Submitting form', this.langForm.value);

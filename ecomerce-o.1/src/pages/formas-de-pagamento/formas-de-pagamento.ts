@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { CartaoProvider } from '../../providers/cartao/cartao';
+import { UserProvider } from '../../providers/user/user';
+import { User } from '../../models/user';
 
 
 
@@ -17,12 +19,20 @@ export class FormasDePagamentoPage {
     public modalCtrl: ModalController,
     public viewCtrl: ViewController,
     public toastCtrl: ToastController,
-    public cartaoProvider: CartaoProvider
+    public cartaoProvider: CartaoProvider,
+    public userProvider: UserProvider,
     
     ) {
-      this.cartaoProvider.listarFS().subscribe(_data => {
-        console.log(_data);
-        this.itemArr = _data;
+      this.userProvider.lerLocal().then(_userId => {
+        this.userProvider.byIdFS(_userId).take(1).subscribe(_data => {
+          const _user = new User(_data);
+          console.log('user', _user);
+
+          this.cartaoProvider.listarFS(_user.id).subscribe(_data => {
+            console.log(_data);
+            this.itemArr = _data;
+          })
+        })
       })
   }
 

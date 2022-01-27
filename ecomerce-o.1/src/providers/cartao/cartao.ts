@@ -26,9 +26,22 @@ export class CartaoProvider {
 
     ) {
     console.log('Hello CartaoProvider Provider');
+    this.userProvider.lerLocal().then(_userId => {
+      this.userProvider.byIdFS(_userId).subscribe(_user => {
+        this.item = new Cartao();
+        this.item.id = _userId;
+        //console.log(this.item.id);
+
+      })
+    }) 
+  }
+  listarFS(userID) {
+    return this.afs.collection('/usuarios/'+ userID + this.ENTIDADE)
+      .snapshotChanges()
+      .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
   }
 
-  listarFS() {
+  /*listarFS() {
     this.userProvider.lerLocal().then(_userId => {
       this.userProvider.byIdFS(_userId).subscribe(_user => {
         this.item = new Cartao();   
@@ -40,7 +53,7 @@ export class CartaoProvider {
     return this.afs.collection('/usuarios/'+ uid + this.ENTIDADE)
     .snapshotChanges()
     .map(item => item.map( changes => ({key: changes.payload.doc.id, value: changes.payload.doc.data() })));
-  }
+  }*/
 
   inserirFS(item) { 
     item.id = this.afs.createId();

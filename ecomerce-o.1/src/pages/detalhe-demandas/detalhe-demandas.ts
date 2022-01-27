@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { User } from '../../models/user';
 import { DemandasProvider } from '../../providers/demandas/demandas';
 import { UserProvider } from '../../providers/user/user';
-import { EndereçosPage } from '../endereços/endereços';
+//import { EndereçosPage } from '../endereços/endereços';
 
 /**
  * Generated class for the DetalheDemandasPage page.
@@ -25,13 +25,20 @@ export class DetalheDemandasPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl: ViewController,
     public userProvider: UserProvider,
-    public enderecosPage: EndereçosPage,
+    //public enderecosPage: EndereçosPage,
     public demandasProvider: DemandasProvider
     
     ) {
-      this.demandasProvider.listarFS().subscribe(_data => {
-        console.log(_data);
-        this.itemArr = _data;
+      this.userProvider.lerLocal().then(_userId => {
+        this.userProvider.byIdFS(_userId).take(1).subscribe(_data => {
+          const _user = new User(_data);
+          console.log('user', _user);
+
+          this.demandasProvider.listarFS(_user.id).subscribe(_data => {
+            console.log(_data);
+            this.itemArr = _data;
+          })
+        })
       })
       
       this.demandasProvider.listarFSE().subscribe(_data => {
@@ -51,7 +58,7 @@ export class DetalheDemandasPage {
 
       })
     }) 
-    console.log(this.enderecosPage.valor);
+    //console.log(this.enderecosPage.valor);
     
   }
   fechar() {
