@@ -13,7 +13,7 @@
         <ion-avatar  item-start>
           <img width="60px" height="60px" [src]="foto">
         </ion-avatar>
-        
+
         <ion-item no-lines>
           <ion-input class="conteudo-input-nome" disabled="true" type="text" [(ngModel)]="item.nome" ></ion-input>
         </ion-item>
@@ -50,9 +50,11 @@
 
         </ion-list>
 
-        <button ion-button block icon-end clear color='dark' (click)='close()' class="button-fechar" >
-          <ion-icon name='ios-close-circle-outline'></ion-icon>
-        </button>
+        <ion-buttons end>
+          <button ion-button icon-end clear color='dark' (click)='close()' class="button-fechar" >
+            <ion-icon name='ios-close-circle-outline'></ion-icon>
+          </button>
+        </ion-buttons>
 
       </div>
     </ion-content>
