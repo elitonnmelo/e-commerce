@@ -11,8 +11,8 @@
 <ion-content padding class="conteudo-addEndereco">
   <ion-grid class="grid-list">
     <ion-row align-items-center justify-content-center>
-      <ion-col align-self-center col-12 col-lg-4 col-xl-4>
-        
+      <ion-col align-self-center col-12>
+        <ion-list >
           <ion-item>
             <ion-label floating>Rua</ion-label>
             <ion-input type="text" [(ngModel)]="item.rua"></ion-input>
@@ -45,11 +45,11 @@
             <ion-input type="text" [(ngModel)]="item.uf"></ion-input>
           </ion-item>
 
-
           
-        
+        </ion-list>
         <button ion-button  (click)="salvar()" class="btn-salvar" >Salvar</button>
         <button ion-button  color="danger" (click)="excluir()" *ngIf="itemID !== undefined" class="btn-excluir">Excluir</button>
+         
       </ion-col>
     </ion-row>
   </ion-grid>
