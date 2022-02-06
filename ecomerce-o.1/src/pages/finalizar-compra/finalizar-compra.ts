@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the FinalizarCompraPage page.
@@ -17,7 +17,9 @@ export class FinalizarCompraPage {
 
   parcelas='';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public modalCtrl: ModalController)) {
   }
 
   ionViewDidLoad() {
@@ -32,7 +34,8 @@ export class FinalizarCompraPage {
     this.navCtrl.push('FormasDePagamentoPage');
   }
   abrirPagamentoRealizado(){
-    this.navCtrl.push('PagamentoRealizadoPage');
+    const modal = this.modalCtrl.create('PagamentoRealizadoPage');
+      modal.present();
   }
 
 }
