@@ -1,33 +1,33 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
 
 <ion-header >
   <ion-navbar >
     <ion-buttons end>
-      <button ion-button icon-only right (click)="detalhesDemanda()">
-        <ion-icon color="light" name="md-clipboard"></ion-icon>
-      </button>
       <button ion-button icon-only color="dark"  (click)="fechar()">
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title class="navbar">Minhas Demandas</ion-title>
+    <ion-title class="navbar" class="toolbar-title" >Minhas Demandas</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="conteudo-demandas" padding>
-
-  <ion-list>
-    <ion-item *ngFor="let item of itemArr">
-      <ion-avatar item-start>
-        <img width="90px" height="90px" src="../../assets/imgs/icon-papel.png">
-      </ion-avatar>
-      <h2>Pedido número {{item.value.numero}}</h2>
-      
-      <button (click)="verDetalhes()" class="btn-detalhes">Ver detalhes</button>
-    </ion-item>  
-  </ion-list>
+  <ion-grid class="grid-list">
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center col-12 col-lg-4 col-xl-4>
+        <ion-list >
+          <ion-item *ngFor="let item of itemArr">
+            <ion-avatar item-start>
+              <img width="90px" height="90px" src="../../assets/imgs/icon-papel.png">
+            </ion-avatar>
+            <h2>Pedido número {{item.value.numero}}</h2> 
+            <button (click)="verDetalhes()" class="btn-detalhes">Ver detalhes</button>
+          </ion-item>  
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    
   <button clear block class="btn-add" (click)="addItem()" color="dark" ion-button icon-start>
     <ion-icon name="add"></ion-icon>
     Adicionar demanda

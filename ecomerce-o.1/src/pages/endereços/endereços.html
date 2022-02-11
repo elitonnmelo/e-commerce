@@ -12,25 +12,28 @@
 
 
 <ion-content class="conteudo-endereco">
-  
-  <ion-list>
-    <ion-item *ngFor="let item of itemArr" (click)="selecionarEndereco(item)">
-      <button (click)="editItem(item)" class="btn-detalhes">Atualizar</button>
-      <ion-avatar item-start>
-        <img width="77px" height="74px" src="../../assets/imgs/icon-casa.png">
-      </ion-avatar>
-      <h2>{{item.value.rua}}</h2>
-      <h3>Nº {{item.value.numero}}</h3>
-      <h3>{{item.value.cidade}}</h3>
-      <p>Longitude: {{item.value.lng}} | Latitude: {{item.value.lat}}</p>
-
-
-    </ion-item>  
-  </ion-list>
+  <ion-grid class="grid-list">
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center col-12>
+        <ion-list >
+          <ion-item *ngFor="let item of itemArr" (click)="selecionarEndereco(item)">
+            <button (click)="editItem(item)" class="btn-detalhes">Atualizar</button>
+            <ion-avatar item-start>
+              <img width="77px" height="74px" src="../../assets/imgs/icon-casa.png">
+            </ion-avatar>
+            <h2>{{item.value.rua}}</h2>
+            <h3>Nº {{item.value.numero}}</h3>
+            <h3>{{item.value.cidade}}</h3>
+            <p>Longitude: {{item.value.lng}} | Latitude: {{item.value.lat}}</p>
+          </ion-item>  
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <button clear block class="btn-add" (click)="addItem()" color="dark" ion-button icon-start>
     <ion-icon name="add"></ion-icon>
-    Adicionar endereço
+     Adicionar endereço
     
   </button>
  

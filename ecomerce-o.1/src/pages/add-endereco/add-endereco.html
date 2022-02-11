@@ -8,45 +8,49 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
+<ion-content padding class="conteudo-addEndereco">
+  <ion-grid class="grid-list">
+    <ion-row align-items-center justify-content-center>
+      <ion-col align-self-center col-12>
+        <ion-list >
+          <ion-item>
+            <ion-label floating>Rua</ion-label>
+            <ion-input type="text" [(ngModel)]="item.rua"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Bairro</ion-label>
+            <ion-input type="text" [(ngModel)]="item.bairro"></ion-input>
+          </ion-item><ion-item>
+            <ion-label floating>Cidade</ion-label>
+            <ion-input type="text" [(ngModel)]="item.cidade"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Complemento</ion-label>
+            <ion-input type="text" [(ngModel)]="item.complemento"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Numero</ion-label>
+            <ion-input type="text" [(ngModel)]="item.numero"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Latitude</ion-label>
+            <ion-input type="text" [(ngModel)]="item.lat"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Longitude</ion-label>
+            <ion-input type="text" [(ngModel)]="item.lng"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>UF</ion-label>
+            <ion-input type="text" [(ngModel)]="item.uf"></ion-input>
+          </ion-item>
 
-<ion-content class="conteudo-addEndereco" padding>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Rua</ion-label>
-      <ion-input type="text" [(ngModel)]="item.rua"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Bairro</ion-label>
-      <ion-input type="text" [(ngModel)]="item.bairro"></ion-input>
-    </ion-item><ion-item>
-      <ion-label floating>Cidade</ion-label>
-      <ion-input type="text" [(ngModel)]="item.cidade"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Complemento</ion-label>
-      <ion-input type="text" [(ngModel)]="item.complemento"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Numero</ion-label>
-      <ion-input type="text" [(ngModel)]="item.numero"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Latitude</ion-label>
-      <ion-input type="text" [(ngModel)]="item.lat"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Longitude</ion-label>
-      <ion-input type="text" [(ngModel)]="item.lng"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>UF</ion-label>
-      <ion-input type="text" [(ngModel)]="item.uf"></ion-input>
-    </ion-item>
-
-  </ion-list>
-
-
-  <button ion-button  (click)="salvar()" class="btn-salvar" >Salvar</button>
-  <button ion-button  color="danger" (click)="excluir()" *ngIf="itemID !== undefined" class="btn-excluir">Excluir</button>
-
+          
+        </ion-list>
+        <button ion-button  (click)="salvar()" class="btn-salvar" >Salvar</button>
+        <button ion-button  color="danger" (click)="excluir()" *ngIf="itemID !== undefined" class="btn-excluir">Excluir</button>
+         
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

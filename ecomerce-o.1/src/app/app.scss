@@ -111,11 +111,14 @@
   // margin: -12px 15 px 3px 0;
   // width: calc(100% - 4px);
 }
-input:disabled {
+/*input:disabled {
   cursor: default;
   background-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
   color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
   border-color: rgb(0, 0, 0);
+}*/
+.text-input[disabled] {
+  opacity: 1;
 }
 
 

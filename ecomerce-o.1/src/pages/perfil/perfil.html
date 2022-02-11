@@ -27,17 +27,21 @@
 
       <ion-avatar class="img-center" item-start>
         <img  [src]="foto">
-        <ion-input type="text" class="text-input" [(ngModel)]="item.nome" ></ion-input>
+        <ion-input disabled type="text" class="text-input" [(ngModel)]="item.nome" ></ion-input>
 
         <input type="file" #fileUserPhoto style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
 
-
-
-        <ion-list>
-          <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-            {{ item }}
-          </button>
-        </ion-list>
+        <ion-grid class="grid-list">
+          <ion-row align-items-center justify-content-center>
+            <ion-col align-self-center col-12 col-lg-5 col-xl-5>
+              <ion-list class="button-center">
+                <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+                  {{ item }}
+                </button>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
       </ion-avatar>
 
