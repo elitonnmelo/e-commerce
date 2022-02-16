@@ -18,12 +18,12 @@
       <h3>Quantidade: 1</h3>
       <h3>Entrega: 5 dias</h3>
     </ion-item>
-    <ion-item>
+    <ion-item no-lines>
       <ion-label fixed>Cliente: </ion-label>
-      <ion-input type="text" [(ngModel)]="item.nome" ></ion-input>
+      <ion-input disabled type="text" [(ngModel)]="item.nome" ></ion-input>
     </ion-item>
     
-    <ion-item *ngFor="let item of itemArrEndereco">
+    <ion-item no-lines *ngFor="let item of itemArrEndereco">
       <h2>Endereço</h2>
       <h2>Rua: {{item.value.rua}}</h2>
       <h3>Nº {{item.value.numero}}</h3>
