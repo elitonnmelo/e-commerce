@@ -33,7 +33,7 @@ export class CarrinhoPage {
     let loader = this.loadingCtrl.create({
       content: "Espere um instante.."
     });
-    loader.present();
+    loader.dismiss();
 
     this.cartService 
       .getCartItems()
