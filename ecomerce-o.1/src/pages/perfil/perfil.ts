@@ -65,8 +65,7 @@ export class PerfilPage {
       modal.present();
     }
     if (item == "Minhas demandas"){
-      const modal = this.modalCtrl.create('MinhasDemandasPage');
-      modal.present();
+      this.navCtrl.push('MinhasDemandasPage');
     }
     
   }
