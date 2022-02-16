@@ -41,31 +41,8 @@ export class MinhasDemandasPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MinhasDemandasPage');
   }
-  detalhesDemanda(){
-    const modal = this.modalCtrl.create('DetalheDemandasPage'); 
-    modal.present();
-  }
-  fechar() {
-    this.viewCtrl.dismiss();
-  }
   verDetalhes(){
     const modal = this.modalCtrl.create('DetalheDemandasPage');
     modal.present();
   }
-  //FUNÇÕES DE TESTE
-  
-  addItem() {
-    const modal = this.modalCtrl.create('AddDemandaPage');
-    modal.present();
-  }
-
-  editItem(_item) {
-    const itemID = _item.key;
-    const item = _item.value;
-
-    const modal = this.modalCtrl.create('AddDemandaPage', { itemID: itemID, item: item } );
-    modal.present();
-  }
-  
-
 }
